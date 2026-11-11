@@ -26,7 +26,6 @@
   ],
   "reverse": [
     { "id": "BR1.1", "status": "N/A", "target": "validation rule, covered implicitly by valid-message ACs" },
-    { "id": "BR1.4", "status": "N/A", "target": "infrastructure rule, supports command execution status reporting" },
-    { "id": "BR1.5", "status": "N/A", "target": "infrastructure rule, supports telemetry event publishing" }
+    { "id": "BR1.4", "status": "N/A", "target": "infrastructure rule, supports command execution status reporting" }
   ]
 }

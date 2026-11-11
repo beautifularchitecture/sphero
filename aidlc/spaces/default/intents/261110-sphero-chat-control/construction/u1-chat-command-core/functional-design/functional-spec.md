@@ -54,10 +54,10 @@ Grounded in stories [stories], requirements [requirements], unit-of-work [unit-o
 
 ```mermaid
 stateDiagram-v2
-    [*] --> moving
+    [*] --> stopped
+    stopped --> moving : new command received
     moving --> stopped : command completed successfully
     moving --> error : Bluetooth error
-    stopped --> moving : new command received
     error --> moving : user retries
 ```
 
@@ -66,7 +66,7 @@ stateDiagram-v2
 ```mermaid
 erDiagram
     ChatMessage ||--o{ RobotCommand : translates to (1:0..1)
-    RobotCommand ||--o{ RobotState : produces (1:0..1)
+
     ChatMessage {
         string messageId PK
         string text
@@ -86,17 +86,7 @@ erDiagram
         string source
         int retryCount
     }
-    RobotState {
-        string stateId PK
-        string direction
-        number orientation
-        string color
-        string position
-        datetime timestamp
-        number batteryLevel
-        number signalStrength
-    }
-```
+
 
 ## Assumptions & Open Questions
 

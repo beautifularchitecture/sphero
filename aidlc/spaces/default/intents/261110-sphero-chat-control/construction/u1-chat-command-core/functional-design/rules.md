@@ -81,20 +81,7 @@ rules:
       cannot correlate commands with robot state.
     source: NFR3
 
-  - id: BR1.5
-    statement: >
-      Robot telemetry (direction, orientation, color, position) is
-      received from the Sphero Mini over Bluetooth LE, normalized into
-      RobotState, and published as events to the stats UI.
-    category: constraint
-    appliesTo: RobotTelemetry → StatsDisplay
-    trigger: Bluetooth LE telemetry event received
-    logic: >
-      IF telemetry event received
-      THEN normalize into RobotState and publish robot.state.changed event
-    violationBehaviour: >
-      Stats panel does not update; observability is lost.
-    source: NFR3
+
 ```
 
 ## Rules Summary
@@ -105,7 +92,7 @@ rules:
 | BR1.2 | calculation | AgentCommand | Validated chat message | FR1.1, FR1.2, FR2 |
 | BR1.3 | policy | All components | Error or uncertainty | FR3, FR4 |
 | BR1.4 | constraint | RobotCommand → RobotTelemetry | Command execution state change | NFR3 |
-| BR1.5 | constraint | RobotTelemetry → StatsDisplay | Telemetry event received | NFR3 |
+
 
 ## Assumptions & Open Questions
 

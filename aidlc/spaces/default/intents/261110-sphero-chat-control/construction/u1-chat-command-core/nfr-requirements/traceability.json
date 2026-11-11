@@ -1,0 +1,21 @@
+{
+  "stage": "nfr-requirements",
+  "unit": "u1-chat-command-core",
+  "upstream_ids": ["NFR1", "NFR2", "NFR3", "NFR4", "NFR5", "NFR6", "NFR7", "NFR8"],
+  "coverage": [
+    { "id": "NFR1", "status": "N/A", "target": "LAN-only constraint; no specific derived requirement in this unit" },
+    { "id": "NFR2", "status": "OK", "target": "NFR2.1, NFR2.2" },
+    { "id": "NFR3", "status": "OK", "target": "NFR3.1, NFR3.2, NFR3.3, NFR3.4, NFR3.5, NFR3.6" },
+    { "id": "NFR4", "status": "OK", "target": "NFR4.1, NFR4.2, NFR4.3, NFR4.4, NFR4.5" },
+    { "id": "NFR5", "status": "N/A", "target": "no WCAG requirement; usability baseline only" },
+    { "id": "NFR6", "status": "OK", "target": "NFR6.1, NFR6.2" },
+    { "id": "NFR7", "status": "OK", "target": "NFR7.1, NFR7.2, NFR7.3" },
+    { "id": "NFR8", "status": "OK", "target": "NFR8.1" }
+  ],
+  "reverse": [
+    { "id": "NFR1", "status": "N/A", "target": "LAN-only constraint; OpenRouter API call is outside LAN scope and not derived as a requirement in this unit" },
+    { "id": "NFR9.1", "status": "N/A", "target": "chat input validation; sourced from FR3, not Bluetooth LE security" },
+    { "id": "NFR9.2", "status": "N/A", "target": "secret protection; sourced from C-04 constraint, not Bluetooth LE security" },
+    { "id": "NFR9.3", "status": "N/A", "target": "chat input authentication; sourced from FR3, not Bluetooth LE security" }
+  ]
+}

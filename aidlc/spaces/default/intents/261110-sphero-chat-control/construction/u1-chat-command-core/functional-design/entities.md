@@ -31,8 +31,8 @@ entities:
       - name: sender
         logicalType: string
         required: true
-        enum: [user]
-        description: Sender of the message (always "user" in this MVP)
+        enum: [user, agent]
+        description: Sender of the message (user for inbound, agent for outbound responses)
       - name: messageType
         logicalType: string
         required: true
@@ -97,49 +97,7 @@ entities:
       - speed is required when command is a movement command
       - color is required when command is setColor
 
-  - name: RobotState
-    description: >
-      The current state of the Sphero Mini robot, received via Bluetooth LE
-      telemetry and published to the stats UI.
-    identifier: stateId
-    attributes:
-      - name: stateId
-        logicalType: string
-        required: true
-        unique: true
-        description: Unique identifier of the robot state reading
-      - name: direction
-        logicalType: string
-        required: true
-        description: Robot direction (e.g., north, south, east, west)
-      - name: orientation
-        logicalType: number
-        required: true
-        description: Robot orientation in degrees
-      - name: color
-        logicalType: string
-        required: true
-        description: Current LED color (e.g., red, blue, green)
-      - name: position
-        logicalType: string
-        required: true
-        description: Robot position coordinates (e.g., "1.2, 0.4" meters)
-      - name: timestamp
-        logicalType: datetime
-        required: true
-        description: ISO-8601 timestamp of the telemetry reading
-      - name: batteryLevel
-        logicalType: number
-        required: false
-        description: Robot battery level percentage (0-100)
-      - name: signalStrength
-        logicalType: number
-        required: false
-        description: Bluetooth LE signal strength (RSSI in dBm)
-    references: []
-    entityLevelConstraints:
-      - orientation must be in range [0, 360)
-      - batteryLevel, when present, must be in range [0, 100]
+
 ```
 
 ## Entity Summary
@@ -148,12 +106,12 @@ entities:
 |--------|-----------------|------------|----------------|------------|
 | ChatMessage | ChatInput | messageId | text, timestamp, direction, sender, messageType, language | — |
 | RobotCommand | RobotCommand | commandId | command, speed, color, timestamp, status, source, retryCount | — |
-| RobotState | RobotTelemetry | stateId | direction, orientation, color, position, timestamp, batteryLevel, signalStrength | — |
+
 
 ## Relationships
 
 - ChatMessage → RobotCommand: A chat message of type "command" may be translated into one RobotCommand (1:0..1)
-- RobotCommand → RobotState: A robot command may produce a RobotState reading when executed (1:0..1)
+
 
 ## Assumptions & Open Questions
 

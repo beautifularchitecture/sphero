@@ -41,9 +41,9 @@ shared-schema:
       description: ISO-8601 timestamp of the status change
   error_handling:
     - condition: Sync callback returns error
-      action: U2 retries once with backoff
+      action: U1 (caller) retries once with backoff
     - condition: Callback unavailable
-      action: U2 logs and continues; telemetry proceeds without status correlation
+      action: U1 logs and continues; telemetry proceeds without status correlation
 ```
 
 ### Contract 2 — U2 → U3: RobotState Telemetry Events
