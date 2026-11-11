@@ -4679,3 +4679,274 @@
 **Stage**: units-generation
 
 ---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T02:03:34Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-design-questions.md
+**Context**: inception > contract-design > contract-design-questions.md
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-11T02:06:44Z
+**Event**: HUMAN_TURN
+**Session**: ses_e382afb2effeDFb5atN2w01vgF
+**Origin**: person
+**Source**: typed
+**Message Id**: da85b3c9
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-design-questions.md","entries":{"Sources":"93ee94063bcb60df","Unit Context":"b129a9aad613fae2","Q1":"ee7628e625d4eab2","Q2":"6923af9a5fd4212e","Q3":"d574623f472147be","Q4":"867d4f94d395d9f2","Q5":"290a2ce5631df88c"}}
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T02:07:01Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-design-questions.md
+**Context**: inception > contract-design > contract-design-questions.md
+
+---
+
+## Question Answered
+**Timestamp**: 2026-11-11T02:07:09Z
+**Event**: QUESTION_ANSWERED
+**Stage**: contract-design
+**Details**: Q1:A; Q2:A; Q3:A; Q4:A; Q5:A
+**Person Reply**: # Contract Design — Questions\n\n## Sources\n\n- [unit-of-work] — units-generation/unit-of-work.md\n- [unit-of-work-dependency] — units-generation/unit-of-work-dependency.md\n- [components] — domain-design/components.md\n- [requirements] — requirements-analysis/requirements.md\n\n## Unit Context\n\nThree units from Units Generation:\n- U1 (u1-chat-command-core) — service: chat input, AI translation via OpenRouter, Bluetooth LE command sending\n- U2 (u2-telemetry) — service: Bluetooth LE telemetry reception, RobotState event publishing\n- U3 (u3-stats-ui) — ui: stats panel rendering, inline speed/color selectors\n\nDependency DAG: U1 → U2 → U3\n\nInter-unit boundaries (candidate contracts):\n1. U1 → U2: command execution status (sync callback)\n2. U2 → U3: RobotState telemetry events (publish/subscribe)\n\nExternal boundary:\n3. U1 → OpenRouter API: chat-to-command translation via LangChain Deep Agents (third-party API, public/external)\n\n## Q1. [Product] Public/external API surface — Which units expose an API consumed outside the system?\n\nU1 exposes the chat input via websockets to the SPA frontend (U3). U3 is the SPA frontend that users interact with externally.\n\n- A. U1 exposes a websocket API consumed externally (by U3's React SPA); U3 consumes it — this is the public/external API boundary\n- B. U1 exposes a REST API consumed externally\n- C. No external API boundary — all communication is internal between units\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q2. [Product] Integration mechanism per boundary — How do units communicate across each boundary?\n\n- A. U1 → U2: sync callback (function call); U2 → U3: event (publish/subscribe); U1 → OpenRouter: sync REST/HTTP\n- B. U1 → U2: async message queue; U2 → U3: async message queue; U1 → OpenRouter: sync REST/HTTP\n- C. U1 → U2: sync REST/HTTP; U2 → U3: sync REST/HTTP; U1 → OpenRouter: sync REST/HTTP\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q3. [Product] Contract ownership — Which unit owns each contract spec?\n\n- A. U1 owns the U1→U2 contract; U2 owns the U2→U3 contract; U1 owns the U1→OpenRouter contract (provider owns each)\n- B. The consumer of each boundary owns the contract spec\n- C. A separate contract spec is owned by a shared "contracts" unit/library\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q4. [Product] Versioning and breaking-change policy — How are contract changes managed?\n\n- A. Semantic versioning on each contract spec; breaking changes require consumer agreement; additive changes are safe (consumers ignore unknown fields)\n- B. No formal versioning; breaking changes communicated informally\n- C. Contracts versioned per-release; breaking changes bundled with releases\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q5. [Product] Error, timeout, and retry behaviour at each boundary — What happens when things go wrong?\n\n- A. U1 → U2: sync callback returns error; U2 retries once with backoff; U2 → U3: event delivery is fire-and-forget (no retry); U1 → OpenRouter: 3 retries with exponential backoff, then error to chat UI\n- B. All boundaries: 3 retries with fixed delay, then fail fast with error message\n- C. U1 → U2: fail fast, no retry; U2 → U3: fire-and-forget; U1 → OpenRouter: 5 retries with fixed delay\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A
+**Message Id**: da85b3c9
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T02:07:40Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md
+**Context**: inception > contract-design > contract-summary.md
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T02:07:47Z
+**Event**: SENSOR_FIRED
+**Fire id**: c63b84f4
+**Sensor ID**: required-sections
+**Stage slug**: contract-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T02:07:47Z
+**Event**: SENSOR_PASSED
+**Fire id**: c63b84f4
+**Sensor ID**: required-sections
+**Stage slug**: contract-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md
+**Duration ms**: 191
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T02:07:47Z
+**Event**: SENSOR_FIRED
+**Fire id**: bb0f8de7
+**Sensor ID**: upstream-coverage
+**Stage slug**: contract-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T02:07:47Z
+**Event**: SENSOR_PASSED
+**Fire id**: bb0f8de7
+**Sensor ID**: upstream-coverage
+**Stage slug**: contract-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md
+**Duration ms**: 200
+
+---
+
+## Review Requested
+**Timestamp**: 2026-11-11T02:07:58Z
+**Event**: REVIEW_REQUESTED
+**Stage**: contract-design
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Iteration**: 1
+**Artifact Fingerprint**: sha256:ce8baa50d2d0d5e64e3eca71b5ea4e46fbc84779037bf48734190148b086ddec
+**Request Id**: review:5608c02fc6db8b6d07ced4a816d72624
+**Review File**: .aidlc-engine/reviews/contract-design/stage/b34b2ae0e6408f54/1.5608c02fc6db8b6d07ced4a816d72624.review.md
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T02:08:06Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T02:10:04Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/.aidlc-engine/reviews/contract-design/stage/b34b2ae0e6408f54/1.5608c02fc6db8b6d07ced4a816d72624.review.md
+**Context**: .aidlc-engine > reviews > contract-design > stage > b34b2ae0e6408f54 > 1.5608c02fc6db8b6d07ced4a816d72624.review.md
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-11T02:10:13Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-architecture-reviewer-agent
+**Agent ID**: call-dd9a3e94-6243-4d6c-85b1-6cdfc97dfcd7
+**Review File Digest**: .aidlc-engine/reviews/contract-design/stage/b34b2ae0e6408f54/1.5608c02fc6db8b6d07ced4a816d72624.review.md=f290d52527b0edef4109797db26856e7db13ac2c4e7532c4c4f319659ca4e5f0
+
+---
+
+## Review Completed
+**Timestamp**: 2026-11-11T02:10:19Z
+**Event**: REVIEW_COMPLETED
+**Stage**: contract-design
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Iteration**: 1
+**Verdict**: READY
+**Review Verdict Dictated**: no
+**Request Fingerprint**: sha256:ce8baa50d2d0d5e64e3eca71b5ea4e46fbc84779037bf48734190148b086ddec
+**Artifact Fingerprint**: sha256:ce8baa50d2d0d5e64e3eca71b5ea4e46fbc84779037bf48734190148b086ddec
+**Request Id**: review:5608c02fc6db8b6d07ced4a816d72624
+**Review Record**: .aidlc-engine/reviews/contract-design/stage/b34b2ae0e6408f54/1.json
+**Review Record Digest**: sha256:e6591844255d6e1f39edbc441d76c130d034fd951d1795e345a2cfb27945820d
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T02:10:26Z
+**Event**: SENSOR_FIRED
+**Fire id**: dd623e28
+**Sensor ID**: required-sections
+**Stage slug**: contract-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T02:10:26Z
+**Event**: SENSOR_PASSED
+**Fire id**: dd623e28
+**Sensor ID**: required-sections
+**Stage slug**: contract-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md
+**Duration ms**: 195
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T02:10:27Z
+**Event**: SENSOR_FIRED
+**Fire id**: 18ad9a16
+**Sensor ID**: upstream-coverage
+**Stage slug**: contract-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T02:10:27Z
+**Event**: SENSOR_PASSED
+**Fire id**: 18ad9a16
+**Sensor ID**: upstream-coverage
+**Stage slug**: contract-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md
+**Duration ms**: 198
+
+---
+
+## Stage Awaiting Approval
+**Timestamp**: 2026-11-11T02:10:27Z
+**Event**: STAGE_AWAITING_APPROVAL
+**Stage**: contract-design
+**Next Stage**: delivery-planning
+**Brief Digest**: none
+**Sensor State**: required-sections@aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md=passed; upstream-coverage@aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md=passed
+**Open Decisions**: 0
+**Question Id**: 5987e552
+**Question Type**: gate
+**Question Chat**: ses_e382afb2effeDFb5atN2w01vgF
+**Question Shows**: sha256:42f022631484cc60cb8bce7c182290dd699c40f6ecb4ea26895093eb618d7709
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-11T02:13:56Z
+**Event**: HUMAN_TURN
+**Session**: ses_e382afb2effeDFb5atN2w01vgF
+**Origin**: person
+**Source**: typed
+**Message Id**: 1a35fa0e
+**Open Questions**: 5987e552
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-design-questions.md","entries":{"Sources":"93ee94063bcb60df","Unit Context":"b129a9aad613fae2","Q1":"ee7628e625d4eab2","Q2":"6923af9a5fd4212e","Q3":"d574623f472147be","Q4":"867d4f94d395d9f2","Q5":"290a2ce5631df88c"}}
+
+---
+
+## Gate Approved
+**Timestamp**: 2026-11-11T02:14:03Z
+**Event**: GATE_APPROVED
+**Stage**: contract-design
+**User Input**: Approve
+**Person Reply**: 1. approve
+**Message Id**: 1a35fa0e
+**Review Finding Dispositions**: {"version":1,"dispositions":[{"artifact":"aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md","id":"R-01","fingerprint":"sha256:b2a3a5cdda99ba02be7cac9c2cd54a5e01e1b32a9f66910610ac5e4f5db50859","status":"Accepted risk","decided_at_severity":"Major","reviewed_record":{"path":".aidlc-engine/reviews/contract-design/stage/b34b2ae0e6408f54/1.json","digest":"sha256:e6591844255d6e1f39edbc441d76c130d034fd951d1795e345a2cfb27945820d"}},{"artifact":"aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md","id":"R-02","fingerprint":"sha256:22257db4a586a986a9eb03d32a5a63fdab2ff7eb86eccd9f79ecbc4d375a4634","status":"Accepted risk","decided_at_severity":"Major","reviewed_record":{"path":".aidlc-engine/reviews/contract-design/stage/b34b2ae0e6408f54/1.json","digest":"sha256:e6591844255d6e1f39edbc441d76c130d034fd951d1795e345a2cfb27945820d"}},{"artifact":"aidlc/spaces/default/intents/261110-sphero-chat-control/inception/contract-design/contract-summary.md","id":"R-03","fingerprint":"sha256:3123cfa259b9deef416517a2c58191265205898e3959609d3d9f677bc5f908e4","status":"Accepted risk","decided_at_severity":"Minor","reviewed_record":{"path":".aidlc-engine/reviews/contract-design/stage/b34b2ae0e6408f54/1.json","digest":"sha256:e6591844255d6e1f39edbc441d76c130d034fd951d1795e345a2cfb27945820d"}}]}
+**Brief Digest**: sha256:461f15fc4933ea1a6bf0ffa224b1f9ec594efd333ddf7354eab8c1c5917d9856
+
+---
+
+## Stage Completion
+**Timestamp**: 2026-11-11T02:14:03Z
+**Event**: STAGE_COMPLETED
+**Stage**: contract-design
+**Validation Basis**: {"graphContract":"sha256:ad5599bf4da38de3dec2bfb4bf705de33d27113e18b6a160549a97c4b694fea3","inputs":[{"artifact":"components","contentHash":"sha256:6eecc3e570071aacd4c9956b44450e9be76aea1b1eb690566e0639eafac82d1d","instanceCount":1,"presentCount":1,"producer":"domain-design","required":false,"structureHash":"sha256:b0909b8640b89a908682ae54fbe050e0ab52818281b04a36c232457a16c18add"},{"artifact":"requirements","contentHash":"sha256:51fdae54ef7ab5d46d34821bf9a7898997b68ecb118ea5a4f1863fd3d30a001f","instanceCount":1,"presentCount":1,"producer":"requirements-analysis","required":false,"structureHash":"sha256:87098beebb86f99522ba6e1f3d6731b1e96bd2a620ff17be394638520efcf623"},{"artifact":"unit-of-work-dependency","contentHash":"sha256:94e0d07bc74e28f6bd20fbcff74d4b00af67c0e35c4632536e9a8524366e4bd7","instanceCount":1,"presentCount":1,"producer":"units-generation","required":true,"structureHash":"sha256:770d9456b858a94b019a9bc74988d8227fedc420188580968676799d08ebe5e2"},{"artifact":"unit-of-work","contentHash":"sha256:b3aed214bdfc0b0ca0eb053dc0a874e8a2c8be209208f88d4d35b0e921cf3bd2","instanceCount":1,"presentCount":1,"producer":"units-generation","required":true,"structureHash":"sha256:9c95c456a3f089b864ade2bc1b0df931f26963a0aebee911a156e85d0406c5b8"}],"outputs":[{"artifact":"contract-summary","contentHash":"sha256:045fd21f8b516b2d435c27b4bc6afe93603d883bd5eca3ca0644739bff9ebf40","instanceCount":1,"presentCount":1,"producer":"contract-design","required":true,"structureHash":"sha256:4eadc1c22bbc7a60061c1d9a6ad24b45359b0371b05e9e87cca59dc4a8a3615d"}],"projectType":"greenfield","schema":3}
+**Details**: Stage Contract Design approved by gate
+
+---
+
+## Stage Start
+**Timestamp**: 2026-11-11T02:14:03Z
+**Event**: STAGE_STARTED
+**Stage**: delivery-planning
+**Agent**: aidlc-delivery-agent
+**Answer Mode**: guide (reused from intent-capture)
+
+---
+
+## Memory Empty
+**Timestamp**: 2026-11-11T02:14:03Z
+**Event**: MEMORY_EMPTY
+**Stage**: contract-design
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T02:14:30Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/delivery-planning/delivery-planning-questions.md
+**Context**: inception > delivery-planning > delivery-planning-questions.md
+
+---
+
+## Decision Recorded
+**Timestamp**: 2026-11-11T02:14:37Z
+**Event**: DECISION_RECORDED
+**Stage**: delivery-planning
+**Decision**: Q1-Q6
+**Options**: Q1,A,B,C,D,E,X;Q2,A,B,C,D,X;Q3,A,B,C,D,X;Q4,A,B,C,X;Q5,A,B,C,D,X;Q6,A,B,C,D,E,X
+**Question Id**: c583185d
+**Question Type**: stage-question
+**Question Chat**: ses_e382afb2effeDFb5atN2w01vgF
+**Question Shows**: sha256:bcfd24cca0a8e367c1379fe21fb68315ad501775c58946b3e347485ebdd5af88
+
+---
