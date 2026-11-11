@@ -1,0 +1,11 @@
+{
+  "stage": "domain-design",
+  "upstream_ids": ["US1.1", "US1.2", "US1.3", "US1.4", "US1.5"],
+  "coverage": [
+    { "id": "US1.1", "status": "OK", "target": "ChatInput, AgentCommand, RobotCommand" },
+    { "id": "US1.2", "status": "OK", "target": "AgentCommand, RobotCommand" },
+    { "id": "US1.3", "status": "OK", "target": "AgentCommand, RobotCommand" },
+    { "id": "US1.4", "status": "OK", "target": "RobotTelemetry, StatsDisplay" },
+    { "id": "US1.5", "status": "OK", "target": "ChatInput, AgentCommand, RobotCommand, RobotTelemetry" }
+  ]
+}

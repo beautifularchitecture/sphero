@@ -16,7 +16,7 @@ Each component owns its business logic, entities, and lifecycle. Databases, cach
 - D. Not yet defined — I'll decide during design
 - X. Other (please specify)
 
-[Answer]:A
+[Answer]: A. Five components: ChatInput (chat → agent), AgentCommand (chat → robot commands), RobotCommand (commands → robot via Bluetooth), RobotTelemetry (telemetry → UI), StatsDisplay (stats panel UI)
 
 ## Q2. [Product] Entity ownership — Which component owns each entity?
 
@@ -28,7 +28,7 @@ Every entity has exactly one owning component. Ambiguous ownership is a design s
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:A
+[Answer]: A. ChatMessage owned by ChatInput; RobotCommand owned by RobotCommand; RobotState (direction/orientation/color/position) owned by RobotTelemetry
 
 ## Q3. [Product] Component interactions — How do components call each other?
 
@@ -40,7 +40,7 @@ Specify the interaction style for each component dependency.
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:A
+[Answer]: A. ChatInput → AgentCommand (sync, function call); AgentCommand → RobotCommand (sync, function call); RobotCommand → RobotTelemetry (sync, callback); RobotTelemetry → StatsDisplay (event, publish telemetry)
 
 ## Q4. [Product] External dependencies — What infra/third-party services does each component use?
 
@@ -52,7 +52,7 @@ These are not components but dependencies OF components.
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:A
+[Answer]: A. ChatInput: none; AgentCommand: OpenRouter API (third-party-api); RobotCommand: Sphero Mini Bluetooth LE (third-party-api); RobotTelemetry: Sphero Mini Bluetooth LE (third-party-api); StatsDisplay: none
 
 ## Q5. [Product] UI component structure — How is the frontend UI decomposed?
 
@@ -64,4 +64,4 @@ The SPA has a chat window and stats panel. How should UI components be structure
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:A
+[Answer]: A. Two UI components: ChatWindow (message input + list) and StatsPanel (direction/orientation/color/position + connection status)

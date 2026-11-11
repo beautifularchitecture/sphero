@@ -3806,3 +3806,173 @@
 **Questions Digest**: {"file":"aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/domain-design-questions.md","entries":{"Sources":"aa17aad5bd7995f1","Q1":"ddb92ee66ac4573a","Q2":"3bf0f5b2930d21f8","Q3":"9bcc1734f7cd598e","Q4":"467d9f39e8ede72a","Q5":"91bcde95be596a43"}}
 
 ---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T01:45:36Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/domain-design-questions.md
+**Context**: inception > domain-design > domain-design-questions.md
+
+---
+
+## Question Answered
+**Timestamp**: 2026-11-11T01:45:51Z
+**Event**: QUESTION_ANSWERED
+**Stage**: domain-design
+**Details**: Q1:A; Q2:A; Q3:A; Q4:A; Q5:A
+**Person Reply**: # Domain Design — Questions\n\n## Sources\n\n- [requirements] — requirements-analysis/requirements.md\n- [stories] — user-stories/stories.md\n- [team-practices] — practices-discovery/team-practices.md\n\n## Q1. [Product] Component boundaries — What are the distinct logical building blocks?\n\nEach component owns its business logic, entities, and lifecycle. Databases, caches, queues, and third-party services are external dependencies, not components.\n\n- A. Five components: ChatInput (chat → agent), AgentCommand (chat → robot commands), RobotCommand (commands → robot via Bluetooth), RobotTelemetry (telemetry → UI), StatsDisplay (stats panel UI)\n- B. Three components: ChatInput (chat + agent), RobotControl (commands + telemetry), StatsUI (stats panel)\n- C. Two components: Frontend (chat + stats UI), Backend (agent + Bluetooth robot control)\n- D. Not yet defined — I'll decide during design\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q2. [Product] Entity ownership — Which component owns each entity?\n\nEvery entity has exactly one owning component. Ambiguous ownership is a design smell.\n\n- A. ChatMessage owned by ChatInput; RobotCommand owned by RobotCommand; RobotState (direction/orientation/color/position) owned by RobotTelemetry\n- B. ChatMessage owned by ChatInput; RobotCommand owned by AgentCommand; RobotState owned by RobotCommand\n- C. ChatMessage owned by ChatInput; RobotCommand owned by RobotCommand; RobotState owned by StatsDisplay (UI)\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q3. [Product] Component interactions — How do components call each other?\n\nSpecify the interaction style for each component dependency.\n\n- A. ChatInput → AgentCommand (sync, function call); AgentCommand → RobotCommand (sync, function call); RobotCommand → RobotTelemetry (sync, callback); RobotTelemetry → StatsDisplay (event, publish telemetry)\n- B. ChatInput → AgentCommand (async, message queue); AgentCommand → RobotCommand (async, message queue); RobotCommand → RobotTelemetry (async, message queue); RobotTelemetry → StatsDisplay (event, publish telemetry)\n- C. ChatInput → AgentCommand (sync, function call); AgentCommand → RobotCommand (sync, function call); RobotCommand → StatsDisplay (sync, direct UI update); no RobotTelemetry component\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q4. [Product] External dependencies — What infra/third-party services does each component use?\n\nThese are not components but dependencies OF components.\n\n- A. ChatInput: none; AgentCommand: OpenRouter API (third-party-api); RobotCommand: Sphero Mini Bluetooth LE (third-party-api); RobotTelemetry: Sphero Mini Bluetooth LE (third-party-api); StatsDisplay: none\n- B. ChatInput: none; AgentCommand: none; RobotCommand: OpenRouter API + Sphero Mini Bluetooth LE; RobotTelemetry: none; StatsDisplay: none\n- C. ChatInput: websocket server; AgentCommand: OpenRouter API; RobotCommand: Bluetooth LE adapter; RobotTelemetry: Bluetooth LE adapter; StatsDisplay: none\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q5. [Product] UI component structure — How is the frontend UI decomposed?\n\nThe SPA has a chat window and stats panel. How should UI components be structured?\n\n- A. Two UI components: ChatWindow (message input + list) and StatsPanel (direction/orientation/color/position + connection status)\n- B. One UI component: MainControlScreen (chat + stats combined)\n- C. Four UI components: ChatInput, MessageList, StatsPanel, ConnectionStatus\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A
+**Message Id**: 5896fb51
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T01:46:23Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/traceability.json
+**Context**: inception > domain-design > traceability.json
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T01:46:24Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/decisions.md
+**Context**: inception > domain-design > decisions.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T01:46:24Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/components.md
+**Context**: inception > domain-design > components.md
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T01:46:37Z
+**Event**: SENSOR_FIRED
+**Fire id**: bdf32bfd
+**Sensor ID**: required-sections
+**Stage slug**: domain-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/components.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T01:46:37Z
+**Event**: SENSOR_PASSED
+**Fire id**: bdf32bfd
+**Sensor ID**: required-sections
+**Stage slug**: domain-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/components.md
+**Duration ms**: 192
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T01:46:38Z
+**Event**: SENSOR_FIRED
+**Fire id**: a1ec1862
+**Sensor ID**: required-sections
+**Stage slug**: domain-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/decisions.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T01:46:38Z
+**Event**: SENSOR_PASSED
+**Fire id**: a1ec1862
+**Sensor ID**: required-sections
+**Stage slug**: domain-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/decisions.md
+**Duration ms**: 198
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T01:46:38Z
+**Event**: SENSOR_FIRED
+**Fire id**: 1f1240e3
+**Sensor ID**: required-sections
+**Stage slug**: domain-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/traceability.json
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T01:46:38Z
+**Event**: SENSOR_PASSED
+**Fire id**: 1f1240e3
+**Sensor ID**: required-sections
+**Stage slug**: domain-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/traceability.json
+**Duration ms**: 198
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T01:46:39Z
+**Event**: SENSOR_FIRED
+**Fire id**: fb022e09
+**Sensor ID**: upstream-coverage
+**Stage slug**: domain-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/components.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T01:46:39Z
+**Event**: SENSOR_PASSED
+**Fire id**: fb022e09
+**Sensor ID**: upstream-coverage
+**Stage slug**: domain-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/components.md
+**Duration ms**: 199
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T01:46:39Z
+**Event**: SENSOR_FIRED
+**Fire id**: 7cf61af9
+**Sensor ID**: traceability
+**Stage slug**: domain-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/traceability.json
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T01:46:39Z
+**Event**: SENSOR_PASSED
+**Fire id**: 7cf61af9
+**Sensor ID**: traceability
+**Stage slug**: domain-design
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/domain-design/traceability.json
+**Duration ms**: 290
+
+---
+
+## Review Requested
+**Timestamp**: 2026-11-11T01:46:45Z
+**Event**: REVIEW_REQUESTED
+**Stage**: domain-design
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Iteration**: 1
+**Artifact Fingerprint**: sha256:5ab8082ca457160415d71cb1be7785afa6bd09ed68d2c6c43393f07a1e83d6af
+**Request Id**: review:2fdf6c00e0c9c05331a792d43a20fe0f
+**Review File**: .aidlc-engine/reviews/domain-design/stage/788f0280e3807a03/1.2fdf6c00e0c9c05331a792d43a20fe0f.review.md
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T01:46:54Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
