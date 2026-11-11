@@ -2449,3 +2449,232 @@
 **Questions Digest**: {"file":"aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-questions.md","entries":{"Sources":"07662da3e5e48c1c","Q1":"0e1485bd15f5d4ec","Q2":"7d4456d2c45cf6f6","Q3":"ba4486cb56f6abfa","Q4":"37a5238705007965","Q5":"a89a6baaedf7c507","Q6":"9d174a7b09ae1fd6"}}
 
 ---
+
+## Practices Affirmed
+**Timestamp**: 2026-11-11T00:51:17Z
+**Event**: PRACTICES_AFFIRMED
+**Affirming User**: user
+**Sections Written**: Way of Working, Walking Skeleton, Testing Posture, Deployment, Code Style
+**Mandated Rules Appended**: 1
+**Forbidden Rules Appended**: 1
+
+---
+
+## Gate Approved
+**Timestamp**: 2026-11-11T00:51:22Z
+**Event**: GATE_APPROVED
+**Stage**: practices-discovery
+**User Input**: Approve
+**Person Reply**: 1. approve
+**Message Id**: c2ebfba2
+**Brief Digest**: none
+
+---
+
+## Stage Completion
+**Timestamp**: 2026-11-11T00:51:22Z
+**Event**: STAGE_COMPLETED
+**Stage**: practices-discovery
+**Validation Basis**: {"graphContract":"sha256:886af627a0fea6d271a662e4a54b4c5993ecee715d6144d46d4a58c2bc3d19bb","inputs":[],"outputs":[{"artifact":"discovered-rules","contentHash":"sha256:525db5f18af587037416c3201e59ab69a4792e3510cc2e17dcf1f2e78f8449ec","instanceCount":1,"presentCount":1,"producer":"practices-discovery","required":true,"structureHash":"sha256:1db7f38a2c30f1e2fb7d541a709dff3e31f254f88a38b3c3693a3b4438755c5e"},{"artifact":"evidence","contentHash":"sha256:7c5160848d3b678d337671f997996f5d0f518f3ee48ceb776acf3c807c29d2a9","instanceCount":1,"presentCount":1,"producer":"practices-discovery","required":true,"structureHash":"sha256:f4b6747c7eaf7355e8f3a07f18bf7795a1eac13f1255271df2955dbf698bb104"},{"artifact":"practices-discovery-timestamp","contentHash":"sha256:60ef8cab3dcc791d604c256cb23e30425b5b2c9a542aa254afabe04543253dda","instanceCount":1,"presentCount":1,"producer":"practices-discovery","required":true,"structureHash":"sha256:72902329a14091dcdc735b1cc61fd242318ef670b3f68dcc77aa296ab55098ec"},{"artifact":"team-practices","contentHash":"sha256:8542bbb0b95405992e0e0ada2586c55c85fe78ebf608fc6858372faedfb76f7c","instanceCount":1,"presentCount":1,"producer":"practices-discovery","required":true,"structureHash":"sha256:6305d28e60025b52dd126fbe56a066b83f46200f0c9f692ba1e4615cd1dfd4ba"}],"projectType":"greenfield","schema":3}
+**Details**: Stage Practices Discovery approved by gate
+
+---
+
+## Stage Start
+**Timestamp**: 2026-11-11T00:51:22Z
+**Event**: STAGE_STARTED
+**Stage**: requirements-analysis
+**Agent**: aidlc-product-agent
+**Answer Mode**: guide (reused from intent-capture)
+
+---
+
+## Memory Empty
+**Timestamp**: 2026-11-11T00:51:23Z
+**Event**: MEMORY_EMPTY
+**Stage**: practices-discovery
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T00:52:19Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements-analysis-questions.md
+**Context**: inception > requirements-analysis > requirements-analysis-questions.md
+
+---
+
+## Decision Recorded
+**Timestamp**: 2026-11-11T00:52:27Z
+**Event**: DECISION_RECORDED
+**Stage**: requirements-analysis
+**Decision**: Q1-Q4
+**Options**: Q1,A,B,C,D,E,X;Q2,A,B,C,D,X;Q3,A,B,C,D,X;Q4,A,B,C,D,X
+**Question Id**: 0bc94d1b
+**Question Type**: stage-question
+**Question Chat**: ses_e382afb2effeDFb5atN2w01vgF
+**Question Shows**: sha256:847711d8136bcb9b4f8aac2e222e4c7bfb5a10afeef44e3a8d50a23756a36a6d
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-11T01:10:22Z
+**Event**: HUMAN_TURN
+**Session**: ses_e382afb2effeDFb5atN2w01vgF
+**Origin**: person
+**Source**: typed
+**Message Id**: 083bdf6e
+**Open Questions**: 0bc94d1b
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements-analysis-questions.md","entries":{"Sources":"4a7678ac773d2b17","Q1":"b2aea4786d8ef39b","Q2":"f03e2a3acf69c875","Q3":"b819fa8072f840c4","Q4":"0ada2c3a386ace8d","Q5":"ca534f6006401aa4","Q6":"2a8c0eed2c77c000","Q7":"79fdbd49f8c19f8f"}}
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T01:10:36Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements-analysis-questions.md
+**Context**: inception > requirements-analysis > requirements-analysis-questions.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T01:10:49Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements-analysis-questions.md
+**Context**: inception > requirements-analysis > requirements-analysis-questions.md
+
+---
+
+## Question Answered
+**Timestamp**: 2026-11-11T01:10:55Z
+**Event**: QUESTION_ANSWERED
+**Stage**: requirements-analysis
+**Details**: Q1:B; Q2:B; Q3:C; Q4:A; Q5:C; Q6:A; Q7:A
+**Person Reply**: # Requirements Analysis — Questions\n\n## Sources\n\n- [desc] Initial description: "i have a sphero mini with me. it has to be able to travel based on direction input from me. so expose a local website where i can enter chat information and the sphero mini must do accordingly. the local website via websockets. Front end will be an SPA with some stats and a chat window. the stats will show direction, orientation, color, position and other paramteters... for my observaibility. requests go to the backend api which is going to be api in python again running in my local network only.. it has to use a deepagents by langchain and the model i provide initially i will use a openrouter model (i can provide the api key in .env just provide the place holder)... that shoudl translate into insturctions that the sphero mini will follow..."\n- [scope] Workflow-selected scope: `mvp`.\n- [Q1-Q8] Intent Capture answers — intent-statement.md\n- [Q1-Q5] Scope Definition answers — scope-document.md, intent-backlog.md\n- [Practices Q1-Q6] Practices Discovery answers — team-practices.md\n- [intent-statement] — intent-statement.md\n- [scope-document] — scope-document.md\n- [team-practices] — team-practices.md (Testing Posture: BDD methodology, 80% coverage floor, CI before merge, pytest+coverage.py)\n\n## Q1. [Product] Functional — Which specific robot capabilities are in scope for this MVP?\n\nChat must drive robot actions. Confirm the exact command set.\n\n- A. Movement only: forward, back, left, right, stop\n- B. Movement + speed control (forward/back/left/right/stop at low/medium/high speed)\n- C. Movement + speed + LED color\n- D. Movement + speed + LED color + heading/orientation turn-to-direction\n- E. Not yet defined\n- X. Other (please specify)\n\n[Answer]:B\n\n## Q2. [Product] Functional — What should happen when the user sends an unclear or unrecognized chat message?\n\n- A. Stop the robot, show the error in the chat UI, wait for a new message\n- B. Ask the user to rephrase in chat before doing anything\n- C. Ignore the message and keep the last safe state\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:B\n\n## Q3. [Product] Non-functional — What reliability target should the chat→robot path meet?\n\nThis sets the measurable success bar beyond "works reliably on the LAN".\n\n- A. Every chat command that parses to a valid robot action results in robot motion within about 2 seconds\n- B. Robot motion starts within about 5 seconds of a valid command\n- C. No specific timing target — "works reliably" is sufficient\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:C\n\n## Q4. [Product] Non-functional — What observability data should the stats panel show, and how fresh must it be?\n\nThis is already answered as direction/orientation/color/position refreshed on every robot state change. Confirm or adjust.\n\n- A. Direction, orientation, color, position — refreshed on every robot state change (confirmed)\n- B. Direction, orientation, color, position — refreshed on a timer (e.g., every 1–2 seconds)\n- C. Direction and color only, plus connection status\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q5. [Product] Accessibility — What WCAG level and keyboard support does the SPA need?\n\nPractices affirmed no formal accessibility requirement (keep it usable but don't certify). Confirm or adjust.\n\n- A. WCAG 2.1 AA — keyboard navigation, color contrast, ARIA labels\n- B. WCAG 2.1 A — minimum viable accessibility\n- C. No formal requirement — keep it usable but don't certify (confirmed)\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:C\n\n## Q6. [Engineering] Test tooling — What test runner and coverage tool should the Python backend use?\n\nPractices affirmed pytest + coverage.py for the backend. Confirm or adjust.\n\n- A. pytest + coverage.py (confirmed)\n- B. unittest + coverage.py\n- C. A different Python test stack\n- D. Not yet defined — decide later\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q7. [Engineering] Frontend testing — What test runner should the React SPA use?\n\nPractices deferred frontend runner selection until the stack is known. The stack is React (from scope). Suggest a choice.\n\n- A. Vitest + React Testing Library\n- B. Jest + React Testing Library\n- C. Playwright (E2E only)\n- D. Not yet defined — decide later\n- X. Other (please specify)\n\n[Answer]:A
+**Message Id**: 083bdf6e
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T01:11:13Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements.md
+**Context**: inception > requirements-analysis > requirements.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T01:11:13Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/traceability.json
+**Context**: inception > requirements-analysis > traceability.json
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T01:11:22Z
+**Event**: SENSOR_FIRED
+**Fire id**: 9509edc1
+**Sensor ID**: required-sections
+**Stage slug**: requirements-analysis
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T01:11:22Z
+**Event**: SENSOR_PASSED
+**Fire id**: 9509edc1
+**Sensor ID**: required-sections
+**Stage slug**: requirements-analysis
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements.md
+**Duration ms**: 208
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T01:11:22Z
+**Event**: SENSOR_FIRED
+**Fire id**: 33ac38cf
+**Sensor ID**: required-sections
+**Stage slug**: requirements-analysis
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements-analysis-questions.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T01:11:23Z
+**Event**: SENSOR_PASSED
+**Fire id**: 33ac38cf
+**Sensor ID**: required-sections
+**Stage slug**: requirements-analysis
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements-analysis-questions.md
+**Duration ms**: 204
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T01:11:23Z
+**Event**: SENSOR_FIRED
+**Fire id**: 42d088d2
+**Sensor ID**: required-sections
+**Stage slug**: requirements-analysis
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/traceability.json
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T01:11:23Z
+**Event**: SENSOR_PASSED
+**Fire id**: 42d088d2
+**Sensor ID**: required-sections
+**Stage slug**: requirements-analysis
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/traceability.json
+**Duration ms**: 193
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T01:11:23Z
+**Event**: SENSOR_FIRED
+**Fire id**: 38358786
+**Sensor ID**: upstream-coverage
+**Stage slug**: requirements-analysis
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T01:11:23Z
+**Event**: SENSOR_PASSED
+**Fire id**: 38358786
+**Sensor ID**: upstream-coverage
+**Stage slug**: requirements-analysis
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/requirements-analysis/requirements.md
+**Duration ms**: 202
+
+---
+
+## Review Requested
+**Timestamp**: 2026-11-11T01:11:24Z
+**Event**: REVIEW_REQUESTED
+**Stage**: requirements-analysis
+**Reviewer**: aidlc-product-lead-agent
+**Iteration**: 1
+**Artifact Fingerprint**: sha256:3b5690f3fa2a3e02105d7e26676d6dde8f7f4521aa2f8694b0b6b7a62ba783a8
+**Request Id**: review:d1325bbee30b7335ae1a40b16ad97535
+**Review File**: .aidlc-engine/reviews/requirements-analysis/stage/e710432b856b2025/1.d1325bbee30b7335ae1a40b16ad97535.review.md
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T01:11:30Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-product-lead-agent
+
+---
