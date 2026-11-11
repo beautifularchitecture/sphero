@@ -26,7 +26,7 @@ Walking skeleton is ON (affirmed at practices-discovery Q2): the first Unit must
 - D. Not yet defined — I'll decide during design
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: X. Other — Three Units: chat/command core, telemetry, stats UI
 
 ## Q2. [Product] Unit granularity — Coarse vs fine-grained?
 
@@ -36,7 +36,7 @@ Walking skeleton is ON (affirmed at practices-discovery Q2): the first Unit must
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: C. Medium: 3 Units (chat/command core, telemetry, stats UI)
 
 ## Q3. [Product] Dependency ordering — Should independent Units be built in parallel?
 
@@ -45,7 +45,7 @@ Walking skeleton is ON (affirmed at practices-discovery Q2): the first Unit must
 - C. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. Yes — Units with no dependency between them can be built simultaneously in their own project copies
 
 ## Q4. [Product] Unit kinds — What kind is each Unit?
 
@@ -55,7 +55,7 @@ Walking skeleton is ON (affirmed at practices-discovery Q2): the first Unit must
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. Walking-skeleton Unit: `service` (deployed executable with chat + robot + stats); Enhancement Unit: `ui` (frontend buttons only)
 
 ## Q5. [Product] Deployment model — How are Units deployed?
 
@@ -65,4 +65,4 @@ Walking skeleton is ON (affirmed at practices-discovery Q2): the first Unit must
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: B. Independent deploy (each Unit deployed separately)
