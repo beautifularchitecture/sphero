@@ -2,7 +2,7 @@
 
 Grounded in NFR requirements [scalability-requirements], functional design [functional-spec], and contract design [contract-summary].
 
-## NFR7 — Scalability Requirements Design
+## SCA-7 — Scalability Requirements Design
 
 | ID | Requirement | Design | Implementation |
 |----|-------------|--------|----------------|

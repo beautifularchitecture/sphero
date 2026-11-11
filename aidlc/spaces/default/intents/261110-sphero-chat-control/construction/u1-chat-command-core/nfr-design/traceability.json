@@ -1,7 +1,7 @@
 {
   "stage": "nfr-design",
   "unit": "u1-chat-command-core",
-  "upstream_ids": ["NFR2.1", "NFR2.2", "NFR3.1", "NFR3.2", "NFR3.3", "NFR3.4", "NFR3.5", "NFR3.6", "NFR4.1", "NFR4.2", "NFR4.3", "NFR4.4", "NFR4.5", "NFR7.1", "NFR7.2", "NFR7.3", "NFR8.1", "NFR9.1", "NFR9.2", "NFR9.3"],
+  "upstream_ids": ["NFR2.1", "NFR2.2", "NFR3.1", "NFR3.2", "NFR3.3", "NFR3.4", "NFR3.5", "NFR3.6", "NFR4.1", "NFR4.2", "NFR4.3", "NFR4.4", "NFR4.5", "NFR7.1", "NFR7.2", "NFR7.3", "NFR8.1", "NFR9.1", "NFR9.2", "NFR9.3", "SCA-1", "SCA-2", "SCA-3", "SCA-4"],
   "coverage": [
     { "id": "NFR2.1", "status": "OK", "target": "Bluetooth pairing in security-design.md" },
     { "id": "NFR2.2", "status": "OK", "target": "Bluetooth connection errors in security-design.md" },
@@ -18,7 +18,6 @@
     { "id": "NFR4.5", "status": "OK", "target": "Latency risk in performance-design.md" },
     { "id": "NFR7.1", "status": "OK", "target": "Line coverage floor in reliability-design.md" },
     { "id": "NFR7.2", "status": "OK", "target": "CI before merge in reliability-design.md" },
-    { "id": "NFR7.3", "status": "OK", "target": "Bluetooth retry/reconnection in reliability-design.md" },
     { "id": "NFR7.3", "status": "OK", "target": "Bluetooth retry/reconnection in reliability-design.md" },
     { "id": "NFR8.1", "status": "OK", "target": "BDD methodology in reliability-design.md" },
     { "id": "SCA-1", "status": "OK", "target": "Single user in scalability-design.md" },

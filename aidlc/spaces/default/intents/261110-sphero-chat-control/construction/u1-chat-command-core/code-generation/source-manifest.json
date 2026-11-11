@@ -1,0 +1,15 @@
+{
+  "srcsFiles": [
+    "backend/app/main.py",
+    "backend/app/chat_input.py",
+    "backend/app/agent_command.py",
+    "backend/app/robot_command.py",
+    "backend/app/config.py",
+    "backend/app/models.py",
+    "frontend/src/App.tsx",
+    "frontend/src/components/ChatWindow.tsx",
+    "frontend/src/components/StatsPanel.tsx",
+    "frontend/src/components/ConnectionStatus.tsx",
+    "frontend/src/services/api.ts"
+  ]
+}

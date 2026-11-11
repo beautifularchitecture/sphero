@@ -2,16 +2,9 @@
 
 ## Sources
 
-- [desc] Initial description: "i have a sphero mini with me. it has to be able to travel based on direction input from me. so expose a local website where i can enter chat information and the sphero mini must do accordingly. the local website via websockets. Front end will be an SPA with some stats and a chat window. the stats will show direction, orientation, color, position and other paramteters... for my observaibility. requests go to the backend api which is going to be api in python again running in my local network only.. it has to use a deepagents by langchain and the model i provide initially i will use a openrouter model (i can provide the api key in .env just provide the place holder)... that shoudl translate into insturctions that the sphero mini will follow..."
-- [scope] Workflow-selected scope: `mvp`.
-- [Q1] Problem: Personal learning and tinkering with robotics plus AI agents — intent-statement.md
-- [Q2] Users: Just me, on my own machine, no reporting needed — intent-statement.md
-- [Q3] Robot capabilities: Directional movement, speed control, heading/orientation, LED color — intent-statement.md
-- [Q4] Chat-to-action: Free-form natural language; the agent decides the commands — intent-statement.md
-- [Q5] Failure behaviour: Stop the robot and show the error in the UI — intent-statement.md
-- [Q6] Target platform: Sphero Mini (original), backend on Linux — intent-statement.md
-- [Q7] Success metric: Works reliably on the LAN; exact latency not critical — intent-statement.md
-- [Q8] Out of scope: No autonomous navigation, no multi-robot, no cloud — intent-statement.md
+- [desc] Initial description: "i have a sphero mini with me. it has to be able to travel based on direction input from me. so expose a local website where i can enter chat information and the sphero mini must do accordingly. the local website via websockets. Front end will be an SPA with some stats and a chat window. the stats will show direction, orientation, color, position and other paramteters... for my observaibility. requests go to the backend api which is going to be api in python again running in my local network only.. it has to use a deepagents by langchain and the model i provide initially i will use a openrouter model (i can provide the api key in .env just provide the place holder)... that shoudl translate into insturctions that the sphero mini will follow..." [desc]
+- [scope] Workflow-selected scope: `mvp`
+- [intent-statement] — intent-statement.md
 
 ## Q1. [Engineering] How will the Python backend connect to the Sphero Mini?
 
@@ -23,7 +16,7 @@ This pins the Bluetooth library and any pairing requirements on your Linux machi
 - D. Not yet defined — I haven't decided the connection method
 - X. Other (please specify)
 
-[Answer]: A. BlueZ + a Python Bluetooth LE library (e.g., bleak, pygatt), pairing handled once at setup
+[Answer]:
 
 ## Q2. [Engineering] Which Python tech stack for the backend and frontend?
 
@@ -35,7 +28,7 @@ This decides the web framework, websocket library, and SPA approach.
 - D. Not yet defined — I haven't decided the stack
 - X. Other (please specify)
 
-[Answer]: A. FastAPI backend + websockets, React SPA frontend
+[Answer]:
 
 ## Q3. [Engineering] Which LangChain Deep Agents setup and OpenRouter model?
 
@@ -47,7 +40,7 @@ This decides the agent framework and model invocation path for turning chat into
 - D. Not yet defined — I'll confirm after researching the packages
 - X. Other (please specify)
 
-[Answer]: B. LangChain Deep Agents package directly, OpenRouter model behind it
+[Answer]:
 
 ## Q4. [Engineering] How is the OpenRouter API key managed?
 
@@ -59,7 +52,7 @@ You said you can provide it in .env. Confirm the approach.
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]: A. .env file at project root, loaded at backend startup, never committed
+[Answer]:
 
 ## Q5. [Product] What does the SPA stats panel show, and how often does it update?
 
@@ -71,9 +64,9 @@ This sets the observability surface the backend must expose over websockets.
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]: A. Direction, orientation, color, position — refreshed on every robot state change
+[Answer]:
 
-## Q6. [Product] Any budget or timeline constraints for this first version?
+## Q6. [Product] Any budget or timeline constraints?
 
 This shapes how much time goes into the agent, frontend polish, and testing.
 
@@ -83,7 +76,7 @@ This shapes how much time goes into the agent, frontend polish, and testing.
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]: A. No hard constraints — build it until it works reliably
+[Answer]:
 
 ## Q7. [Engineering] Are there any regulatory, compliance, or organizational constraints?
 
@@ -95,19 +88,4 @@ This covers anything that would limit what you can build or how data flows on yo
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]: A. None — personal project, home LAN, no compliance obligations
-
-## Consolidated Summary Confirmation
-
-- Robot connection: BlueZ + Python Bluetooth LE library (bleak/pygatt), pairing once at setup [Q1]
-- Tech stack: FastAPI backend + websockets, React SPA frontend [Q2]
-- Agent setup: LangChain Deep Agents package directly, OpenRouter model behind it [Q3]
-- API key: .env file at project root, loaded at backend startup, never committed [Q4]
-- Stats panel: Direction, orientation, color, position — refreshed on every robot state change [Q5]
-- Budget/timeline: No hard constraints — build it until it works reliably [Q6]
-- Compliance constraints: None — personal project, home LAN, no compliance obligations [Q7]
-
-- Looks correct
-- Request changes
-
-[Answer]: Looks correct
+[Answer]:

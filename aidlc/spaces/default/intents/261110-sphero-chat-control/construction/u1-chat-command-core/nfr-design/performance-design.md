@@ -1,6 +1,6 @@
 # Performance Design — u1-chat-command-core
 
-Grounded in NFR requirements [performance-requirements], functional design [functional-spec], contract design [contract-summary], and tech stack decisions [tech-stack-decisions].
+Grounded in NFR requirements [performance-requirements], functional design [functional-spec], contract design [contract-summary], security design [security-design], scalability design [scalability-design], reliability design [reliability-design], observability design [observability-design], logical components [logical-components], and tech stack decisions [tech-stack-decisions].
 
 ## NFR4 — Chat→Robot Latency Design
 
