@@ -2,86 +2,79 @@
 
 ## Test Framework Setup
 
-This unit uses pytest as the test framework with coverage.py for coverage measurement.
+This unit uses pytest for Python backend testing and Vitest + React Testing Library for frontend SPA testing, per the affirmed test posture (BDD methodology, 80% line coverage floor, CI before merge).
 
-### Test Runner Command
+## Test Runner Command
 
 Run all unit tests for this unit:
 
 ```bash
-cd aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core
-pytest tests/ --cov=. --cov-report=term-missing
+cd /home/supermind/Code/the-beautiful-architecture/sphero
+pytest tests/ --cov=backend/app --cov-report=term-missing
 ```
 
-### Test File Structure
+## Test File Structure
 
 ```
 tests/
-├── __init__.py
 ├── chat_input/
 │   ├── __init__.py
 │   └── test_chat_input.py
 ├── agent_command/
 │   ├── __init__.py
 │   └── test_agent_command.py
-├── robot_command/
-│   ├── __init__.py
-│   └── test_robot_command.py
-└── conftest.py
+└── robot_command/
+    ├── __init__.py
+    └── test_robot_command.py
 ```
 
-### Test Coverage Requirements
+## Acceptance Criteria to Test
 
-Minimum 80% line coverage per NFR7.1. Coverage is measured across the `backend/app/` source directory.
+### US1.1 — Chat-driven Robot Movement
 
-### Test Categories
+| AC | Test File | Test Cases |
+|----|-----------|------------|
+| AC1.1.1 | tests/chat_input/test_chat_input.py | "roll forward" → robot moves forward |
+| AC1.1.2 | tests/chat_input/test_chat_input.py | "stop" → robot stops moving |
+| AC1.1.3 | tests/chat_input/test_chat_input.py | "turn left" → robot turns left |
+| AC1.1.4 | tests/chat_input/test_chat_input.py | "turn right" → robot turns right |
+| AC1.1.5 | tests/chat_input/test_chat_input.py | "roll back" → robot moves backward |
 
-#### Happy Path Tests
-Each requirement's happy path acceptance criteria must have corresponding tests:
-- AC1.1.1: "roll forward" command moves robot forward
-- AC1.1.2: "stop" command stops robot
-- AC1.1.3: "turn left" command turns robot left
-- AC1.1.4: "turn right" command turns robot right
-- AC1.1.5: "roll back" command moves robot backward
-- AC1.2.1: "set speed low" sets speed to low
-- AC1.2.2: "set speed medium" sets speed to medium
-- AC1.2.3: "set speed high" sets speed to high
-- AC1.3.1: "set color red" sets LED color to red
-- AC1.3.2: "set color blue" sets LED color to blue
-- AC1.3.3: "set color green" sets LED color to green
+### US1.2 — Speed Control
 
-#### Error Path Tests (BDD - Given/When/Then)
+| ID | Test File | Test Cases |
+|----|-----------|------------|
+| AC1.2.1 | tests/agent_command/test_agent_command_speed.py | "set speed low" → speed=low |
+| AC1.2.2 | tests/agent_command/test_agent_command_speed.py | "set speed medium" → speed=medium |
+| AC1.2.3 | tests/agent_command/test_agent_command_speed.py | "set speed high" → speed=high |
 
-**Given** an unclear chat message **"xyzzy"**, **When** user sends it via chat, **Then** system asks user to rephrase before any robot action.
+### US1.3 — LED Color Control
 
-**Given** Bluetooth permission is denied, **When** backend tries to connect, **Then** error is shown in chat UI and robot does not move.
+| ID | Test File | Test Cases |
+|----|-----------|------------|
+| AC1.3.1 | tests/agent_command/test_agent_command_color.py | "set color red" → LED turns red |
+| AC1.3.2 | tests/agent_command/test_agent_command_color.py | "set color blue" → LED turns blue |
+| AC1.3.3 | tests/agent_command/test_agent_command_color.py | "set color green" → LED turns green |
 
-**Given** robot disconnects mid-operation, **When** disconnect occurs, **Then** error is shown in chat UI and movement stops.
-
-**Given** agent or backend encounters an error, **When** error occurs, **Then** robot stops and error is shown in chat UI.
-
-### Running Tests
-
-Run all unit tests for this unit:
+## Running Tests
 
 ```bash
-cd aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core
-pytest tests/ --cov=. --cov-report=term-missing
+# Run all unit tests for this unit
+cd /home/supermind/Code/the-beautiful-architecture/sphero
+pytest tests/ --cov=backend/app --cov-report=term-missing
+
+# Run only chat input tests
+pytest tests/chat_input/ --cov=backend/app --cov-report=term-missing
+
+# Run only agent command tests
+pytest tests/agent_command/ --cov=backend/app --cov-report=term-missing
+
+# Run only robot command tests
+pytest tests/robot_command/ --cov=backend/app --cov-report=term-missing
 ```
-
-### Test Execution Order
-
-1. ChatInput tests (Q1: chat input validation)
-2. AgentCommand tests (Q2: agent command translation)
-3. RobotCommand tests (Q3: robot command Bluetooth execution)
-
-### Mocking
-
-- Bluetooth LE: Mock the bleak/pygatt library; do not require actual Bluetooth hardware for unit tests
-- OpenRouter API: Mock the API responses; do not require actual API key for unit tests
-- Frontend: Not tested in this unit (frontend is U3)
 
 ## Assumptions & Open Questions
 
-- Sphero Mini Bluetooth LE pairing must be completed before integration testing robot commands
-- OpenRouter API key must be configured for agent command translation tests
+- Sphero Mini Bluetooth LE pairing must be completed before testing robot command execution
+- OpenRouter API key must be configured in `.env` before testing agent command translation
+- Frontend (React SPA) testing is not part of this unit (U3 handles frontend)

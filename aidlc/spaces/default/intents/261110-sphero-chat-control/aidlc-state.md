@@ -62,6 +62,12 @@
 
 
 
+- **Active Unit**: u1-chat-command-core
+
+- **Unit Stage**: code-generation
+
+- **Unit State**: in-progress
+
 ## Phase Progress
 <!-- Status values: Pending, Active, Verified, Skipped -->
 
@@ -122,7 +128,7 @@
 - **Current Stage**: functional-design
 - **Next Stage**: nfr-requirements
 - **Status**: Running
-- **Last Updated**: 2026-11-11T05:04:07Z
+- **Last Updated**: 2026-11-11T12:48:34Z
 
 ## Session Resume Point
 - **Last Completed Stage**: delivery-planning
