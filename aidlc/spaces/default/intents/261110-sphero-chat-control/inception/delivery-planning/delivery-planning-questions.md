@@ -36,7 +36,7 @@ Options for the Bolt sequencing heuristic:
 - E. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. Walking-skeleton-first: U1 (chat → robot end-to-end) as Bolt 1, then U2 + U3 as later Bolts — proves the whole thing hangs together before adding features
 
 ### Q2. [Product] Should we score and rank the work with a formal model (WSJF-style)?
 
@@ -48,7 +48,7 @@ This decides whether to use Weighted Shortest Job First scoring (value + urgency
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: C. No — no formal scoring model; use walking-skeleton-first then value-for-the-rest
 
 ### Q3. [Product] How big should one Bolt be?
 
@@ -58,7 +58,7 @@ This decides whether to use Weighted Shortest Job First scoring (value + urgency
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. Single Unit per Bolt: Bolt 1 = U1, Bolt 2 = U2, Bolt 3 = U3 (three Bolts, one Unit each)
 
 ### Q4. [Product] Can several Bolts be built at the same time?
 
@@ -67,7 +67,7 @@ This decides whether to use Weighted Shortest Job First scoring (value + urgency
 - C. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: B. Parallel where possible — U2's telemetry listener can be developed alongside U1's command path; U3's UI skeleton alongside U1
 
 ### Q5. [Product] External dependencies that could hold us up
 
@@ -77,7 +77,7 @@ This decides whether to use Weighted Shortest Job First scoring (value + urgency
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: X (I can provide the OpenRouter API key when ready. I use an Ubuntu desktop for LE pairing — tell me how and I shall do it. Mention that in README.md if that's the right place.)
 
 ### Q6. [Product] What worries you most about this build?
 
@@ -90,4 +90,4 @@ This helps decide which Bolt to ship first to surface the biggest unknown.
 - E. None / not sure
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. Bluetooth LE pairing/connection instability on Linux
