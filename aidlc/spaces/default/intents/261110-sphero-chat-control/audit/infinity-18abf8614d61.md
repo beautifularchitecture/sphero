@@ -1926,3 +1926,526 @@
 **Stage**: rough-mockups
 
 ---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T00:39:52Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-pipeline-deploy-agent
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T00:41:05Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+**Context**: inception > practices-discovery > team-practices.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T00:41:05Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-timestamp.md
+**Context**: inception > practices-discovery > practices-discovery-timestamp.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T00:41:05Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/evidence.md
+**Context**: inception > practices-discovery > evidence.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T00:41:06Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/discovered-rules.md
+**Context**: inception > practices-discovery > discovered-rules.md
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-11T00:41:12Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-pipeline-deploy-agent
+**Agent ID**: call-749cac6a-b932-4714-88c1-825062d51196
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T00:41:37Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-devsecops-agent
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T00:41:37Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-quality-agent
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T00:41:37Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-developer-agent
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T00:42:04Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/contributions/aidlc-devsecops-agent.md
+**Context**: inception > practices-discovery > contributions > aidlc-devsecops-agent.md
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-11T00:42:13Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-devsecops-agent
+**Agent ID**: call-49cd207f-1064-4ea7-b0bf-38ef31a0dd54
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T00:42:14Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/contributions/aidlc-developer-agent.md
+**Context**: inception > practices-discovery > contributions > aidlc-developer-agent.md
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-11T00:42:22Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-developer-agent
+**Agent ID**: call-82079b84-c4db-497b-a2ba-beeb7d89c9a4
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T00:42:28Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/contributions/aidlc-quality-agent.md
+**Context**: inception > practices-discovery > contributions > aidlc-quality-agent.md
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-11T00:42:35Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-quality-agent
+**Agent ID**: call-a6128289-c302-4a1b-a939-ae0c6a7baf57
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T00:42:52Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-pipeline-deploy-agent
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T00:43:42Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+**Context**: inception > practices-discovery > team-practices.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T00:44:01Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/discovered-rules.md
+**Context**: inception > practices-discovery > discovered-rules.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T00:44:17Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/evidence.md
+**Context**: inception > practices-discovery > evidence.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T00:44:37Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-timestamp.md
+**Context**: inception > practices-discovery > practices-discovery-timestamp.md
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-11T00:44:49Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-pipeline-deploy-agent
+**Agent ID**: call-7f5269a4-f7f5-4eed-8643-0fcfa8e99e94
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T00:45:11Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-questions.md
+**Context**: inception > practices-discovery > practices-discovery-questions.md
+
+---
+
+## Decision Recorded
+**Timestamp**: 2026-11-11T00:45:18Z
+**Event**: DECISION_RECORDED
+**Stage**: practices-discovery
+**Decision**: Practices Discovery interview
+**Options**: Q1,A,B,C,D,X;Q2,A,B,C,X;Q3,A,B,C,D,X;Q4,A,B,C,D,X;Q5,A,B,C,D,X;Q6,A,B,C,X
+**Question Id**: 147acaf2
+**Question Type**: stage-question
+**Question Chat**: ses_e382afb2effeDFb5atN2w01vgF
+**Question Shows**: sha256:97b221c1562b5961ef6ea45bc02d0cf27a3ccb6ab0f5286d914fd0a12e7a7827
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-11T00:48:36Z
+**Event**: HUMAN_TURN
+**Session**: ses_e382afb2effeDFb5atN2w01vgF
+**Origin**: person
+**Source**: typed
+**Message Id**: a2822235
+**Open Questions**: 147acaf2
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-questions.md","entries":{"Sources":"07662da3e5e48c1c","Q1":"0e1485bd15f5d4ec","Q2":"7d4456d2c45cf6f6","Q3":"0a494196e8a4e18e","Q4":"37a5238705007965","Q5":"a89a6baaedf7c507","Q6":"9d174a7b09ae1fd6"}}
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T00:48:51Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-questions.md
+**Context**: inception > practices-discovery > practices-discovery-questions.md
+
+---
+
+## Question Answered
+**Timestamp**: 2026-11-11T00:48:59Z
+**Event**: QUESTION_ANSWERED
+**Stage**: practices-discovery
+**Details**: Q1:A; Q2:A; Q3:C; Q4:B; Q5:A; Q6:A
+**Person Reply**: # Practices Discovery — Interview Questions\n\n## Sources\n\n- [scope] Workflow-selected scope: `mvp`.\n- [org] Suggested defaults from `aidlc/spaces/default/memory/org.md` (greenfield: these are suggestions, not established facts).\n\n## Q1. [Product] Way of Working — How does the team handle branches and merges?\n\nOrg.md default: trunk-based development, base `main`, target `main`, squash-merge Bolt branches into `main`.\n\n- A. Trunk-based: one `main` branch, short-lived feature branches squash-merged into `main`\n- B. Feature branches with merge commits (not squash)\n- C. GitFlow with `develop` and `main` branches\n- D. Not yet defined — I'll decide later\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q2. [Product] Walking Skeleton — Build a thin end-to-end slice first?\n\nA walking skeleton is a minimal version that runs the whole way through, built first to prove the pieces connect before the real features go in.\n\n- A. Yes — build a walking skeleton first (chat → robot → stats end-to-end), then add features\n- B. No — skip the skeleton, build features directly\n- C. Not yet defined — I'll decide later\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q3. [Product] Testing Posture — What test methodology does the team use?\n\nOrg.md default: test-after (implement each layer, then write and run that layer's tests). mvp scope adds an 80% line-coverage floor and CI execution before merge.\n\n- A. Test-after — implement first, then write and run tests for each layer\n- B. TDD — write tests first, then implement to make them pass\n- C. BDD — write scenarios in Given/When/Then, then implement\n- D. Custom — a mix of approaches\n- X. Other (please specify)\n\n[Answer]:C\n\n## Q4. [Product] Deployment — How does the team deploy?\n\nOrg.md default: deploy on merge to staging; production gates on manual approval (tech lead + product owner).\n\n- A. Deploy on merge to staging; production needs manual approval\n- B. Continuous deployment to production on every merge\n- C. Manual deployment only, no CI/CD\n- D. Not yet defined — I'll decide later\n- X. Other (please specify)\n\n[Answer]:B\n\n## Q5. [Product] Code Style — How does the team handle formatting and linting?\n\nOrg.md default: defer to project-level config (Prettier for JS/TS, Black for Python), linter in CI before merge, failure blocks the PR.\n\n- A. Project-level formatter + linter, CI blocks merge on failure\n- B. Team style guide, reviewed manually in PRs\n- C. No formal style rules — format however\n- D. Not yet defined — I'll decide later\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q6. [Security] Secret Management — How are API keys and secrets handled?\n\nThis project uses `.env` for the OpenRouter API key. DevSecOps flag: `.env` must never be committed.\n\n- A. `.env` never committed; secrets from CI/env vars or secrets manager; secret scanning in CI\n- B. `.env` committed locally, not shared\n- C. Not yet defined — I'll decide later\n- X. Other (please specify)\n\n[Answer]:A
+**Message Id**: a2822235
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T00:49:10Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-pipeline-deploy-agent
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T00:49:53Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+**Context**: inception > practices-discovery > team-practices.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T00:49:53Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/discovered-rules.md
+**Context**: inception > practices-discovery > discovered-rules.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T00:49:53Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-timestamp.md
+**Context**: inception > practices-discovery > practices-discovery-timestamp.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T00:49:53Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/evidence.md
+**Context**: inception > practices-discovery > evidence.md
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-11T00:50:00Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-pipeline-deploy-agent
+**Agent ID**: call-0abe3809-8616-4192-a0c4-dbe92afe5856
+
+---
+
+## Practices Discovered
+**Timestamp**: 2026-11-11T00:50:06Z
+**Event**: PRACTICES_DISCOVERED
+**Sources Scanned**: org.md, team.md, project.md, aidlc-state.md
+**Drafts**: team-practices.md, discovered-rules.md
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T00:50:12Z
+**Event**: SENSOR_FIRED
+**Fire id**: 1cfe88bd
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T00:50:12Z
+**Event**: SENSOR_PASSED
+**Fire id**: 1cfe88bd
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+**Duration ms**: 188
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T00:50:12Z
+**Event**: SENSOR_FIRED
+**Fire id**: 3c5a6543
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/discovered-rules.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T00:50:12Z
+**Event**: SENSOR_PASSED
+**Fire id**: 3c5a6543
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/discovered-rules.md
+**Duration ms**: 183
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T00:50:12Z
+**Event**: SENSOR_FIRED
+**Fire id**: 0b72d7a2
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/evidence.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T00:50:13Z
+**Event**: SENSOR_PASSED
+**Fire id**: 0b72d7a2
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/evidence.md
+**Duration ms**: 211
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T00:50:13Z
+**Event**: SENSOR_FIRED
+**Fire id**: ecf8c649
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-timestamp.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T00:50:13Z
+**Event**: SENSOR_PASSED
+**Fire id**: ecf8c649
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-timestamp.md
+**Duration ms**: 178
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T00:50:13Z
+**Event**: SENSOR_FIRED
+**Fire id**: 65e09486
+**Sensor ID**: upstream-coverage
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T00:50:13Z
+**Event**: SENSOR_PASSED
+**Fire id**: 65e09486
+**Sensor ID**: upstream-coverage
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+**Duration ms**: 170
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T00:50:14Z
+**Event**: SENSOR_FIRED
+**Fire id**: d78ec339
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T00:50:14Z
+**Event**: SENSOR_PASSED
+**Fire id**: d78ec339
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+**Duration ms**: 173
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T00:50:14Z
+**Event**: SENSOR_FIRED
+**Fire id**: 601c361e
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/discovered-rules.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T00:50:14Z
+**Event**: SENSOR_PASSED
+**Fire id**: 601c361e
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/discovered-rules.md
+**Duration ms**: 172
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T00:50:15Z
+**Event**: SENSOR_FIRED
+**Fire id**: b02253d9
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/evidence.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T00:50:15Z
+**Event**: SENSOR_PASSED
+**Fire id**: b02253d9
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/evidence.md
+**Duration ms**: 175
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T00:50:15Z
+**Event**: SENSOR_FIRED
+**Fire id**: 112b6e68
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-timestamp.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T00:50:15Z
+**Event**: SENSOR_PASSED
+**Fire id**: 112b6e68
+**Sensor ID**: required-sections
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-timestamp.md
+**Duration ms**: 162
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T00:50:15Z
+**Event**: SENSOR_FIRED
+**Fire id**: 5125107c
+**Sensor ID**: upstream-coverage
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T00:50:15Z
+**Event**: SENSOR_PASSED
+**Fire id**: 5125107c
+**Sensor ID**: upstream-coverage
+**Stage slug**: practices-discovery
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md
+**Duration ms**: 175
+
+---
+
+## Stage Awaiting Approval
+**Timestamp**: 2026-11-11T00:50:15Z
+**Event**: STAGE_AWAITING_APPROVAL
+**Stage**: practices-discovery
+**Next Stage**: requirements-analysis
+**Brief Digest**: none
+**Sensor State**: required-sections@aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md=passed; required-sections@aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/discovered-rules.md=passed; required-sections@aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/evidence.md=passed; required-sections@aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-timestamp.md=passed; upstream-coverage@aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/team-practices.md=passed
+**Open Decisions**: 0
+**Question Id**: 9330553a
+**Question Type**: gate
+**Question Chat**: ses_e382afb2effeDFb5atN2w01vgF
+**Question Shows**: sha256:a30c50bc86c00807909ae71bd7e51c5b3a5626b4a1d1b73fc880d62e1d86d6d5
+
+---
+
+## Human Turn
+**Timestamp**: 2026-11-11T00:51:10Z
+**Event**: HUMAN_TURN
+**Session**: ses_e382afb2effeDFb5atN2w01vgF
+**Origin**: person
+**Source**: typed
+**Message Id**: c2ebfba2
+**Open Questions**: 147acaf2, 9330553a
+**Questions Digest**: {"file":"aidlc/spaces/default/intents/261110-sphero-chat-control/inception/practices-discovery/practices-discovery-questions.md","entries":{"Sources":"07662da3e5e48c1c","Q1":"0e1485bd15f5d4ec","Q2":"7d4456d2c45cf6f6","Q3":"ba4486cb56f6abfa","Q4":"37a5238705007965","Q5":"a89a6baaedf7c507","Q6":"9d174a7b09ae1fd6"}}
+
+---
