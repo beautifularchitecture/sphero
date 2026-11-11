@@ -1,0 +1,21 @@
+{
+  "stage": "functional-design",
+  "unit": "u2-telemetry",
+  "upstream_ids": [
+    "AC1.4.1",
+    "AC1.4.2"
+  ],
+  "coverage": [
+    {
+      "id": "AC1.4.1",
+      "status": "OK",
+      "target": "BR1.4.1"
+    },
+    {
+      "id": "AC1.4.2",
+      "status": "OK",
+      "target": "BR1.4.3"
+    }
+  ],
+  "reverse": []
+}

@@ -1,4 +1,7 @@
 # BEGIN AI-DLC:gitignore
+# Local secrets
+.env
+.env.*
 # AI-DLC: local working files
 aidlc/active-space
 aidlc/spaces/*/intents/active-intent
@@ -24,3 +27,4 @@ aidlc/spaces/*/intents/*/runtime-graph.json
 aidlc/spaces/*/intents/*/.aidlc-*
 aidlc/diagnostics/
 # END AI-DLC:gitignore
+tmp/*

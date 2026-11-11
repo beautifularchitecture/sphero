@@ -44,7 +44,7 @@
 - **Construction Iteration**: unit-major
 - **Construction Execution**: serial
 
-- **Construction Verification Command**: pytest
+- **Construction Verification Command**: test -f aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/code-generation/code-generation-plan.md && test -f aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/code-generation/unit-test-instructions.md && test -f aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/code-generation/code-summary.md && test -f aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/code-generation/traceability.json && test -f aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/code-generation/source-manifest.json && echo "u1-chat-command-core code-generation artifacts present"
 
 - **Unit Ownership**: solo
 
@@ -62,11 +62,8 @@
 
 
 
-- **Active Unit**: u1-chat-command-core
 
-- **Unit Stage**: code-generation
 
-- **Unit State**: in-progress
 
 ## Phase Progress
 <!-- Status values: Pending, Active, Verified, Skipped -->
@@ -128,7 +125,9 @@
 - **Current Stage**: functional-design
 - **Next Stage**: nfr-requirements
 - **Status**: Running
-- **Last Updated**: 2026-11-11T12:48:34Z
+- **Last Updated**: 2026-11-11T20:29:53Z
+
+- **Construction Autonomy Mode**: autonomous
 
 ## Session Resume Point
 - **Last Completed Stage**: delivery-planning
