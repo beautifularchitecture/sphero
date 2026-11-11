@@ -16,7 +16,7 @@ This pins the Bluetooth library and any pairing requirements on your Linux machi
 - D. Not yet defined — I haven't decided the connection method
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. BlueZ + a Python Bluetooth LE library (e.g., bleak, pygatt), pairing handled once at setup
 
 ## Q2. [Engineering] Which Python tech stack for the backend and frontend?
 
@@ -28,7 +28,7 @@ This decides the web framework, websocket library, and SPA approach.
 - D. Not yet defined — I haven't decided the stack
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. FastAPI backend + websockets, React SPA frontend
 
 ## Q3. [Engineering] Which LangChain Deep Agents setup and OpenRouter model?
 
@@ -40,7 +40,7 @@ This decides the agent framework and model invocation path for turning chat into
 - D. Not yet defined — I'll confirm after researching the packages
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: B. LangChain Deep Agents package directly, OpenRouter model behind it
 
 ## Q4. [Engineering] How is the OpenRouter API key managed?
 
@@ -52,7 +52,7 @@ You said you can provide it in .env. Confirm the approach.
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. .env file at project root, loaded at backend startup, never committed
 
 ## Q5. [Product] What does the SPA stats panel show, and how often does it update?
 
@@ -64,7 +64,7 @@ This sets the observability surface the backend must expose over websockets.
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. Direction, orientation, color, position — refreshed on every robot state change
 
 ## Q6. [Product] Any budget or timeline constraints?
 
@@ -76,7 +76,7 @@ This shapes how much time goes into the agent, frontend polish, and testing.
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. No hard constraints — build it until it works reliably
 
 ## Q7. [Engineering] Are there any regulatory, compliance, or organizational constraints?
 
@@ -88,4 +88,4 @@ This covers anything that would limit what you can build or how data flows on yo
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. None — personal project, home LAN, no compliance obligations

@@ -1,15 +1,40 @@
 {
-  "srcsFiles": [
-    "backend/app/main.py",
-    "backend/app/chat_input.py",
-    "backend/app/agent_command.py",
-    "backend/app/robot_command.py",
-    "backend/app/config.py",
-    "backend/app/models.py",
-    "frontend/src/App.tsx",
-    "frontend/src/components/ChatWindow.tsx",
-    "frontend/src/components/StatsPanel.tsx",
-    "frontend/src/components/ConnectionStatus.tsx",
-    "frontend/src/services/api.ts"
+  "stage": "code-generation",
+  "unit": "u1-chat-command-core",
+  "version": 1,
+  "writes": [
+    {
+      "path": "backend/app/main.py"
+    },
+    {
+      "path": "backend/app/chat_input.py"
+    },
+    {
+      "path": "backend/app/agent_command.py"
+    },
+    {
+      "path": "backend/app/robot_command.py"
+    },
+    {
+      "path": "backend/app/config.py"
+    },
+    {
+      "path": "backend/app/models.py"
+    },
+    {
+      "path": "frontend/src/App.tsx"
+    },
+    {
+      "path": "frontend/src/components/ChatWindow.tsx"
+    },
+    {
+      "path": "frontend/src/components/StatsPanel.tsx"
+    },
+    {
+      "path": "frontend/src/components/ConnectionStatus.tsx"
+    },
+    {
+      "path": "frontend/src/services/api.ts"
+    }
   ]
 }
