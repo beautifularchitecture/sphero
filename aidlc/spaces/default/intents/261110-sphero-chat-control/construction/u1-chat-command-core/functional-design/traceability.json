@@ -1,0 +1,32 @@
+{
+  "stage": "functional-design",
+  "unit": "u1-chat-command-core",
+  "upstream_ids": [
+    "AC1.1.1", "AC1.1.2", "AC1.1.3", "AC1.1.4", "AC1.1.5",
+    "AC1.2.1", "AC1.2.2", "AC1.2.3",
+    "AC1.3.1", "AC1.3.2", "AC1.3.3",
+    "AC1.5.1", "AC1.5.2", "AC1.5.3", "AC1.5.4"
+  ],
+  "coverage": [
+    { "id": "AC1.1.1", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.1.2", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.1.3", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.1.4", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.1.5", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.2.1", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.2.2", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.2.3", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.3.1", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.3.2", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.3.3", "status": "OK", "target": "BR1.2" },
+    { "id": "AC1.5.1", "status": "OK", "target": "BR1.3" },
+    { "id": "AC1.5.2", "status": "OK", "target": "BR1.3" },
+    { "id": "AC1.5.3", "status": "OK", "target": "BR1.3" },
+    { "id": "AC1.5.4", "status": "OK", "target": "BR1.3" }
+  ],
+  "reverse": [
+    { "id": "BR1.1", "status": "N/A", "target": "validation rule, covered implicitly by valid-message ACs" },
+    { "id": "BR1.4", "status": "N/A", "target": "infrastructure rule, supports command execution status reporting" },
+    { "id": "BR1.5", "status": "N/A", "target": "infrastructure rule, supports telemetry event publishing" }
+  ]
+}

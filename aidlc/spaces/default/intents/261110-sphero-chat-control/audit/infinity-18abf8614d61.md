@@ -5512,3 +5512,347 @@
 **Questions Digest**: {"file":"aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/functional-design-questions.md","entries":{"Unit Context":"98d1a41e16a9f778","Sources":"da79e0532d538fd3","Q1":"be40fc378461ca13","Q2":"d63bf380a55d9144","Q3":"ea82dfcac44c74ea","Q4":"2bb87decd2fcd9d3","Q5":"28e08fd15909194a","Q6":"56c454651218c83d","Q7":"10665ec931636e55","Q8":"c12647907760d134","Q9":"e20c5a8acc7cb9d9"}}
 
 ---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T02:36:39Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/functional-design-questions.md
+**Context**: construction > u1-chat-command-core > functional-design > functional-design-questions.md
+
+---
+
+## Question Answered
+**Timestamp**: 2026-11-11T02:36:46Z
+**Event**: QUESTION_ANSWERED
+**Stage**: functional-design
+**Details**: Q1:B; Q2:B; Q3:B; Q4:C; Q5:A; Q6:A; Q7:A; Q8:A; Q9:A
+**Unit**: u1-chat-command-core
+**Person Reply**: # Functional Design Questions — u1-chat-command-core\n\n## Unit Context\n\nUnit U1 (u1-chat-command-core) — service — chat input, AI translation via Deep Agents + OpenRouter, Bluetooth LE command sending — stories US1.1, US1.2, US1.3 — Complexity: L — Walking skeleton.\n\nThis unit is the walking skeleton: chat → robot end-to-end, exercising chat input, AI translation, Bluetooth LE command sending, and robot movement.\n\n## Sources\n\n- [unit-of-work] — units-generation/unit-of-work.md\n- [unit-of-work-story-map] — units-generation/unit-of-work-story-map.md\n- [stories] — user-stories/stories.md\n- [requirements] — requirements-analysis/requirements.md\n- [components] — domain-design/components.md\n- [contract-summary] — contract-design/contract-summary.md\n\n## Q1. [Product] Entity model — ChatMessage\n\nThe ChatMessage entity is owned by ChatInput. What attributes does it have beyond messageId, text, timestamp, and direction?\n\n- A. Just those four attributes (messageId, text, timestamp, direction)\n- B. Add: sender (always "user"), messageType (command/query/status), language\n- C. Add: rawInput (the exact user text), normalizedText (cleaned for the agent), confidence (agent's confidence score)\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:B\n\n## Q2. [Product] Entity model — RobotCommand\n\nThe RobotCommand entity is owned by RobotCommand component. What attributes does it have?\n\n- A. commandId, command, speed, color, timestamp, status\n- B. commandId, command, speed, color, timestamp, status, source (chat/button/api), retryCount\n- C. commandId, command, speed, color, timestamp, status, executionTimeMs\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:B\n\n## Q3. [Product] Entity model — RobotState\n\nThe RobotState entity is owned by RobotTelemetry. What attributes does it have?\n\n- A. stateId, direction, orientation, color, position, timestamp\n- B. stateId, direction, orientation, color, position, timestamp, batteryLevel, signalStrength\n- C. stateId, direction, orientation, color, position, timestamp, lastCommandId\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:B\n\n## Q4. [Product] Business rules — Chat input validation\n\nWhat rules apply when a user sends a chat message?\n\n- A. Message must be non-empty; must be under 500 characters; must be valid UTF-8\n- B. Message must be non-empty; no length limit; must not contain only whitespace\n- C. Message must be non-empty; must match a known command pattern (forward/back/left/right/stop/set speed/set color); otherwise trigger rephrase\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:C\n\n## Q5. [Product] Business rules — Command translation\n\nHow does the agent translate chat into robot commands?\n\n- A. Free-form: the agent decides any command from the user's words (confirmed at feasibility Q4)\n- B. Fixed vocabulary: only forward/back/left/right/stop, set speed, set color\n- C. Hybrid: free-form input but agent may only emit commands from the fixed vocabulary\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q6. [Product] Business rules — Error handling\n\nWhat happens when the agent receives an unclear message?\n\n- A. Ask the user to rephrase before taking any robot action (confirmed at feasibility Q5)\n- B. Stop the robot and show the error in the UI\n- C. Ignore the message and keep the last safe state\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q7. [Product] Data flow — Chat to command\n\nDescribe the step sequence when a user sends a chat message.\n\n- A. User types → message validated → sent to backend → agent translates → command validated → sent to robot via Bluetooth → robot moves → telemetry updates stats\n- B. User types → message sent to backend → agent translates → command sent to robot → robot moves (no validation step)\n- C. User types → message validated → sent to backend → agent translates → command sent to robot → telemetry updates (no validation step)\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q8. [Product] Frontend components — Chat window\n\nWhat components make up the chat window?\n\n- A. Message list, message input, Send button (confirmed at refined mockups)\n- B. Message list, message input, Send button, connection status indicator, speed selector, color selector\n- C. Message list, message input, Send button, error banner, typing indicator\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A\n\n## Q9. [Product] Frontend components — Stats panel\n\nWhat components make up the stats panel?\n\n- A. Direction, orientation, color, position, connection status (confirmed at refined mockups)\n- B. Direction, orientation, color, position, connection status, battery level, signal strength\n- C. Direction, orientation, color, position, connection status, last command, command history\n- D. Not yet defined\n- X. Other (please specify)\n\n[Answer]:A
+**Message Id**: 82c0413f
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T02:37:43Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/functional-spec.md
+**Context**: construction > u1-chat-command-core > functional-design > functional-spec.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T02:37:43Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/rules.md
+**Context**: construction > u1-chat-command-core > functional-design > rules.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T02:37:43Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/entities.md
+**Context**: construction > u1-chat-command-core > functional-design > entities.md
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T02:37:52Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/traceability.json
+**Context**: construction > u1-chat-command-core > functional-design > traceability.json
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T02:38:13Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/traceability.json
+**Context**: construction > u1-chat-command-core > functional-design > traceability.json
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T02:38:59Z
+**Event**: SENSOR_FIRED
+**Fire id**: fbf21f2f
+**Sensor ID**: required-sections
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/entities.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T02:38:59Z
+**Event**: SENSOR_PASSED
+**Fire id**: fbf21f2f
+**Sensor ID**: required-sections
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/entities.md
+**Duration ms**: 170
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T02:38:59Z
+**Event**: SENSOR_FIRED
+**Fire id**: 17a1eba6
+**Sensor ID**: required-sections
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/rules.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T02:38:59Z
+**Event**: SENSOR_PASSED
+**Fire id**: 17a1eba6
+**Sensor ID**: required-sections
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/rules.md
+**Duration ms**: 172
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T02:38:59Z
+**Event**: SENSOR_FIRED
+**Fire id**: 24965193
+**Sensor ID**: required-sections
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/functional-spec.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T02:39:00Z
+**Event**: SENSOR_PASSED
+**Fire id**: 24965193
+**Sensor ID**: required-sections
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/functional-spec.md
+**Duration ms**: 160
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T02:39:00Z
+**Event**: SENSOR_FIRED
+**Fire id**: bcae1322
+**Sensor ID**: required-sections
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/traceability.json
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T02:39:00Z
+**Event**: SENSOR_PASSED
+**Fire id**: bcae1322
+**Sensor ID**: required-sections
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/traceability.json
+**Duration ms**: 177
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T02:39:00Z
+**Event**: SENSOR_FIRED
+**Fire id**: e9b10492
+**Sensor ID**: upstream-coverage
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/entities.md
+
+---
+
+## Sensor Passed
+**Timestamp**: 2026-11-11T02:39:00Z
+**Event**: SENSOR_PASSED
+**Fire id**: e9b10492
+**Sensor ID**: upstream-coverage
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/entities.md
+**Duration ms**: 171
+
+---
+
+## Sensor Fired
+**Timestamp**: 2026-11-11T02:39:00Z
+**Event**: SENSOR_FIRED
+**Fire id**: 992c59d4
+**Sensor ID**: traceability
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/traceability.json
+
+---
+
+## Sensor Failed
+**Timestamp**: 2026-11-11T02:39:01Z
+**Event**: SENSOR_FAILED
+**Fire id**: 992c59d4
+**Sensor ID**: traceability
+**Stage slug**: functional-design
+**Unit**: u1-chat-command-core
+**Output path**: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/traceability.json
+**Detail path**: aidlc/spaces/default/intents/261110-sphero-chat-control/.aidlc-engine/sensors/functional-design/traceability-992c59d4.md
+**Findings count**: 3
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T02:39:24Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/traceability.json
+**Context**: construction > u1-chat-command-core > functional-design > traceability.json
+
+---
+
+## Review Requested
+**Timestamp**: 2026-11-11T02:39:43Z
+**Event**: REVIEW_REQUESTED
+**Stage**: functional-design
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Unit**: u1-chat-command-core
+**Iteration**: 1
+**Artifact Fingerprint**: sha256:7525c388936ac27e4c26d5c7718046ea2cba67a079a4446c48fffa6f8293fa87
+**Request Id**: review:8307f3e669639919fb38d87c3fd19e69
+**Review File**: .aidlc-engine/reviews/functional-design/units/u1-chat-command-core/5950df393dcb7a3b/1.8307f3e669639919fb38d87c3fd19e69.review.md
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T02:39:53Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T02:43:06Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/.aidlc-engine/reviews/functional-design/units/u1-chat-command-core/5950df393dcb7a3b/1.8307f3e669639919fb38d87c3fd19e69.review.md
+**Context**: .aidlc-engine > reviews > functional-design > units > u1-chat-command-core > 5950df393dcb7a3b > 1.8307f3e669639919fb38d87c3fd19e69.review.md
+
+---
+
+## Subagent Completed
+**Timestamp**: 2026-11-11T02:43:18Z
+**Event**: SUBAGENT_COMPLETED
+**Agent Type**: aidlc-architecture-reviewer-agent
+**Agent ID**: call-1730e9a0-a16c-483c-a151-a8796af456a9
+**Review File Digest**: .aidlc-engine/reviews/functional-design/units/u1-chat-command-core/5950df393dcb7a3b/1.8307f3e669639919fb38d87c3fd19e69.review.md=450eb7de22521d7b93878de0f081dd83d8eed5f8ed85c6d2c38b3677fd666611
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T02:43:40Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/entities.md
+**Context**: construction > u1-chat-command-core > functional-design > entities.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T02:43:49Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/rules.md
+**Context**: construction > u1-chat-command-core > functional-design > rules.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T02:44:02Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/functional-spec.md
+**Context**: construction > u1-chat-command-core > functional-design > functional-spec.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T02:44:12Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/functional-spec.md
+**Context**: construction > u1-chat-command-core > functional-design > functional-spec.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T02:44:40Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/functional-spec.md
+**Context**: construction > u1-chat-command-core > functional-design > functional-spec.md
+
+---
+
+## Artifact Updated
+**Timestamp**: 2026-11-11T02:44:45Z
+**Event**: ARTIFACT_UPDATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/functional-design/functional-spec.md
+**Context**: construction > u1-chat-command-core > functional-design > functional-spec.md
+
+---
+
+## Error Logged
+**Timestamp**: 2026-11-11T02:44:59Z
+**Event**: ERROR_LOGGED
+**Tool**: aidlc-log
+**Command**: aidlc-log engine log review --stage functional-design --reviewer aidlc-architecture-reviewer-agent --unit u1-chat-command-core --iteration 2 --project-dir <project-dir>
+**Error**: Cannot start review iteration 2 for "functional-design": iteration 1 never got a verdict and its outputs or source changed since, so it is requested again as iteration 1: `aidlc engine log review --stage functional-design --reviewer aidlc-architecture-reviewer-agent --unit u1-chat-command-core --iteration 1 --project-dir /home/supermind/Code/the-beautiful-architecture/sphero`.
+
+---
+
+## Review Requested
+**Timestamp**: 2026-11-11T02:45:05Z
+**Event**: REVIEW_REQUESTED
+**Stage**: functional-design
+**Reviewer**: aidlc-architecture-reviewer-agent
+**Unit**: u1-chat-command-core
+**Iteration**: 1
+**Artifact Fingerprint**: sha256:438e09c5f22853357a965c86fe14317f864fd9e1195a1a9d89977aa9860d36e1
+**Request Id**: review:ddc41652ff5c17eca01afbf7e3a92e7a
+**Replaces Request Id**: review:8307f3e669639919fb38d87c3fd19e69
+**Review File**: .aidlc-engine/reviews/functional-design/units/u1-chat-command-core/5950df393dcb7a3b/1.ddc41652ff5c17eca01afbf7e3a92e7a.review.md
+
+---
+
+## Subagent Dispatched
+**Timestamp**: 2026-11-11T02:45:15Z
+**Event**: SUBAGENT_DISPATCHED
+**Agent Type**: aidlc-architecture-reviewer-agent
+
+---
+
+## Artifact Created
+**Timestamp**: 2026-11-11T02:50:25Z
+**Event**: ARTIFACT_CREATED
+**Tool**: Write
+**File**: <project-dir>/aidlc/spaces/default/intents/261110-sphero-chat-control/.aidlc-engine/reviews/functional-design/units/u1-chat-command-core/5950df393dcb7a3b/1.ddc41652ff5c17eca01afbf7e3a92e7a.review.md
+**Context**: .aidlc-engine > reviews > functional-design > units > u1-chat-command-core > 5950df393dcb7a3b > 1.ddc41652ff5c17eca01afbf7e3a92e7a.review.md
+
+---

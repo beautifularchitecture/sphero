@@ -25,7 +25,7 @@ The ChatMessage entity is owned by ChatInput. What attributes does it have beyon
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: B. Add: sender (always "user"), messageType (command/query/status), language
 
 ## Q2. [Product] Entity model — RobotCommand
 
@@ -37,7 +37,7 @@ The RobotCommand entity is owned by RobotCommand component. What attributes does
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: B. commandId, command, speed, color, timestamp, status, source (chat/button/api), retryCount
 
 ## Q3. [Product] Entity model — RobotState
 
@@ -49,7 +49,7 @@ The RobotState entity is owned by RobotTelemetry. What attributes does it have?
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: B. stateId, direction, orientation, color, position, timestamp, batteryLevel, signalStrength
 
 ## Q4. [Product] Business rules — Chat input validation
 
@@ -61,7 +61,7 @@ What rules apply when a user sends a chat message?
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: C. Message must be non-empty; must match a known command pattern (forward/back/left/right/stop/set speed/set color); otherwise trigger rephrase
 
 ## Q5. [Product] Business rules — Command translation
 
@@ -73,7 +73,7 @@ How does the agent translate chat into robot commands?
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. Free-form: the agent decides any command from the user's words (confirmed at feasibility Q4)
 
 ## Q6. [Product] Business rules — Error handling
 
@@ -85,7 +85,7 @@ What happens when the agent receives an unclear message?
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. Ask the user to rephrase before taking any robot action (confirmed at feasibility Q5)
 
 ## Q7. [Product] Data flow — Chat to command
 
@@ -97,7 +97,7 @@ Describe the step sequence when a user sends a chat message.
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. User types → message validated → sent to backend → agent translates → command validated → sent to robot via Bluetooth → robot moves → telemetry updates stats
 
 ## Q8. [Product] Frontend components — Chat window
 
@@ -109,7 +109,7 @@ What components make up the chat window?
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. Message list, message input, Send button (confirmed at refined mockups)
 
 ## Q9. [Product] Frontend components — Stats panel
 
@@ -121,4 +121,4 @@ What components make up the stats panel?
 - D. Not yet defined
 - X. Other (please specify)
 
-[Answer]:
+[Answer]: A. Direction, orientation, color, position, connection status (confirmed at refined mockups)
