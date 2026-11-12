@@ -1,0 +1,19 @@
+[Unit]
+Description=U2 RobotTelemetry Service — BLE telemetry reception, normalization, and RobotStateChanged event publishing
+After=network-online.target bluetooth.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -m u2_telemetry
+WorkingDirectory=/opt/sphero/u2_telemetry
+Restart=always
+RestartSec=5
+User=sphero
+Group=sphero
+Environment=PYTHONUNBUFFERED=1
+# No secrets needed by U2 (NFR2.2). OpenRouter key is U1's responsibility (Contract 3).
+# BLE requires direct hardware access; the host must have BlueZ and a Bluetooth controller.
+
+[Install]
+WantedBy=multi-user.target

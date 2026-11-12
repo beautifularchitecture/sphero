@@ -1,0 +1,17 @@
+{
+  "stage": "nfr-design",
+  "unit": "u2-telemetry",
+  "upstream_ids": ["NFR4.1", "NFR4.2", "NFR4.3", "NFR2.1", "NFR2.2", "NFR4.4", "NFR4.5", "NFR2.3", "NFR2.4", "NFR4.6"],
+  "coverage": [
+    { "id": "NFR4.1", "status": "OK", "target": "async background publisher, RobotStateChanged within 500ms of BLE receipt" },
+    { "id": "NFR4.2", "status": "OK", "target": "bounded asyncio queue + background publisher, 10 events/sec sustained" },
+    { "id": "NFR4.3", "status": "OK", "target": "in-memory lenient normalization, RobotState within 100ms of receipt" },
+    { "id": "NFR2.1", "status": "OK", "target": "BLE link-layer encryption with pairing required for telemetry reception" },
+    { "id": "NFR2.2", "status": "OK", "target": "no API keys, tokens, or secrets in U2; no .env or secret file" },
+    { "id": "NFR4.4", "status": "OK", "target": "single Sphero Mini, one BLE radio, no multi-robot routing" },
+    { "id": "NFR4.5", "status": "OK", "target": "fire-and-forget RobotStateChanged to U3 StatsDisplay only, no fan-out" },
+    { "id": "NFR2.3", "status": "OK", "target": "retry-with-backoff, reconnect within 5s, up to 3 retries, exponential backoff" },
+    { "id": "NFR2.4", "status": "OK", "target": "best-effort command status correlation; telemetry continues when U1 callback unavailable" },
+    { "id": "NFR4.6", "status": "OK", "target": "lenient normalization, missing fields filled with dash/null placeholders" }
+  ]
+}

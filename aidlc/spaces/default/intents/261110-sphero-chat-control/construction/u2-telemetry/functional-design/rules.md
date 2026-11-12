@@ -40,17 +40,18 @@ rules:
   - id: BR1.4.3
     statement: >
       U2 shall handle telemetry connection errors and disconnections by
-      stopping the robot and reporting the error to the chat UI via U1.
+      reporting the error through U1 for chat UI display and robot stop,
+      per US1.5 AC1.5.4.
     category: constraint
     applies_to: RobotTelemetry
     trigger: Bluetooth LE telemetry connection error or disconnection detected
     logic: >
-      IF BLE connection drops or telemetry reception fails THEN report the
-      error to U1 for display in the chat UI; the robot stops movement
-      (per FR4 / US1.5 AC1.5.4).
+      IF BLE connection drops or telemetry reception fails THEN U2 signals the
+      error to U1 (which owns the chat UI and robot stop per FR4); U1 displays
+      the error in the chat UI and stops the robot.
     violation_behaviour: >
-      Error is surfaced in the chat UI; robot does not continue moving on
-      a lost telemetry connection.
+      Error is surfaced in the chat UI by U1; robot does not continue moving
+      on a lost telemetry connection.
     source: [US1.5, AC1.5.4, FR4, Q5]
   - id: BR1.4.4
     statement: >

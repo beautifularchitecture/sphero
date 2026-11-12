@@ -2,13 +2,13 @@
 > This file is kept up to date automatically while the stage runs. Add observations at the review step, not by editing here directly.
 
 ## Interpretations
-<!-- example: 2026-05-29T10:14:32Z — chose REST over GraphQL; the consuming team only needs CRUD, revisit if subscriptions land -->
+2026-11-12T05:10:00Z — Infrastructure Design for u2-telemetry: single Linux host with BLE radio running Python/bleak/FastAPI as a systemd service; no containers/CDK needed for the single-robot MVP since BLE requires direct hardware access.
 
 ## Deviations
-<!-- example: 2026-05-29T10:14:32Z — skipped the optional caching layer the stage prose suggested; the dataset is small enough that it adds risk -->
+<!-- none -->
 
 ## Tradeoffs
-<!-- example: 2026-05-29T10:14:32Z — picked TDD over BDD this run; the team is unit-first and the domain is well-understood -->
+2026-11-12T05:10:00Z — rolling deployment instead of blue-green/canary (single host, double cost unjustified); no persistent data store (telemetry is fire-and-forget per Contract 2); U2 has no secrets (NFR2.2), all secret management lives in U1.
 
 ## Open questions
-<!-- example: 2026-05-29T10:14:32Z — confirm the retention window with compliance before the next stage hardens the schema -->
+<!-- none -->

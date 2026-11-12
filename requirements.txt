@@ -1,0 +1,7 @@
+bleak
+fastapi
+
+# Test dependencies
+pytest
+pytest-asyncio
+coverage

@@ -17,5 +17,9 @@
       "target": "BR1.4.3"
     }
   ],
-  "reverse": []
+  "reverse": [
+    { "id": "BR1.4.2", "status": "N/A", "target": "policy rule, no upstream AC" },
+    { "id": "BR1.4.4", "status": "N/A", "target": "contract rule, no upstream AC" },
+    { "id": "BR1.4.5", "status": "N/A", "target": "design constraint, no upstream AC" }
+  ]
 }

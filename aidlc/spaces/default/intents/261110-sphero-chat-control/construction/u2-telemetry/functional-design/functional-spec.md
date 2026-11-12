@@ -24,9 +24,8 @@ US1.4 — Stats panel observability (telemetry reception part, AC1.4.1–AC1.4.2
 
 **Steps:**
 1. Bluetooth LE telemetry connection error or disconnection is detected.
-2. U2 reports the error to U1 via the CommandExecutionStatus sync callback.
-3. U1 displays the error in the chat UI and stops the robot (FR4 / US1.5 AC1.5.4).
-4. U2 attempts reconnection in the background; telemetry resumes when the connection is restored.
+2. U2 signals the error to U1 (which owns the chat UI and robot stop per FR4); U1 displays the error in the chat UI and stops the robot (FR4 / US1.5 AC1.5.4).
+3. U2 attempts reconnection in the background; telemetry resumes when the connection is restored.
 
 ## State Machine
 

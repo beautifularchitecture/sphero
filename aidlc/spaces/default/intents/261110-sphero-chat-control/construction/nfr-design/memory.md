@@ -2,13 +2,13 @@
 > This file is kept up to date automatically while the stage runs. Add observations at the review step, not by editing here directly.
 
 ## Interpretations
-<!-- example: 2026-05-29T10:14:32Z — chose REST over GraphQL; the consuming team only needs CRUD, revisit if subscriptions land -->
+2026-11-12T04:58:00Z — NFR Design for u2-telemetry: async publish (Q2=A) keeps BLE reception non-blocking at NFR4.2's 10 events/sec; correlation IDs (Q4=A) make fire-and-forget events traceable without per-event logging.
 
 ## Deviations
-<!-- example: 2026-05-29T10:14:32Z — skipped the optional caching layer the stage prose suggested; the dataset is small enough that it adds risk -->
+<!-- none -->
 
 ## Tradeoffs
-<!-- example: 2026-05-29T10:14:32Z — picked TDD over BDD this run; the team is unit-first and the domain is well-understood -->
+2026-11-12T04:58:00Z — no circuit breaker (Q1=A) and single logical RobotTelemetry component (Q5=A): simplicity over extensibility for the single-robot MVP, matching NFR2.3's retry-with-backoff exactly.
 
 ## Open questions
-<!-- example: 2026-05-29T10:14:32Z — confirm the retention window with compliance before the next stage hardens the schema -->
+<!-- none -->

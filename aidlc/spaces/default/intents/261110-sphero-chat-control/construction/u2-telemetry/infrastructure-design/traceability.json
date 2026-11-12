@@ -1,0 +1,19 @@
+{
+  "stage": "infrastructure-design",
+  "unit": "u2-telemetry",
+  "upstream_ids": ["NFR4.3", "NFR4.2", "NFR4.1", "NFR2.1", "NFR2.2", "NFR4.6", "NFR3.1", "NFR4.5", "NFR4.4", "NFR2.3", "NFR3.2", "NFR2.4"],
+  "coverage": [
+    { "id": "NFR4.3", "status": "OK", "target": "in-memory normalization on single Linux host, no network hop, < 100ms" },
+    { "id": "NFR4.2", "status": "OK", "target": "asyncio queue + background publisher on single host, 10 events/sec sustained" },
+    { "id": "NFR4.1", "status": "OK", "target": "local event publish on same host via WebSocket, < 500ms" },
+    { "id": "NFR2.1", "status": "OK", "target": "BlueZ BLE link-layer encryption with pairing required" },
+    { "id": "NFR2.2", "status": "OK", "target": "no .env or secret file for U2; OpenRouter key managed by U1 only (Contract 3)" },
+    { "id": "NFR4.6", "status": "OK", "target": "lenient in-memory normalization, no persistence, dash/null placeholders for missing fields" },
+    { "id": "NFR3.1", "status": "OK", "target": "structured JSON logs to stdout, systemd journal → CloudWatch Logs, 30-day retention" },
+    { "id": "NFR4.5", "status": "OK", "target": "fire-and-forget WebSocket publish to U3 StatsDisplay only, no fan-out" },
+    { "id": "NFR4.4", "status": "OK", "target": "single BLE radio, one Linux host, no multi-robot routing" },
+    { "id": "NFR2.3", "status": "OK", "target": "bleak retry-with-backoff + systemd auto-restart, reconnect within 5s, up to 3 retries" },
+    { "id": "NFR3.2", "status": "OK", "target": "U2 reports BLE connection state via U1 sync callback to chat UI" },
+    { "id": "NFR2.4", "status": "OK", "target": "best-effort command status correlation; telemetry continues when U1 callback unavailable" }
+  ]
+}

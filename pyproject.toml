@@ -1,0 +1,25 @@
+[project]
+name = "u2-telemetry"
+version = "0.1.0"
+description = "U2 RobotTelemetry Python service — BLE telemetry reception, RobotState normalization, and RobotStateChanged event publishing."
+requires-python = ">=3.14"
+dependencies = [
+    "bleak",
+    "fastapi",
+]
+
+[project.scripts]
+u2-telemetry = "u2_telemetry.__main__:main"
+
+[tool.pytest.ini_options]
+testpaths = ["u2_telemetry/tests"]
+asyncio_mode = "auto"
+addopts = ["-v"]
+
+[tool.coverage.run]
+source = ["u2_telemetry"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 80
+precision = 2
