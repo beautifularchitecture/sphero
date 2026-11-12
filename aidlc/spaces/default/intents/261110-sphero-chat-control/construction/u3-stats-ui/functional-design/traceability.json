@@ -1,0 +1,14 @@
+{
+  "stage": "functional-design",
+  "unit": "u3-stats-ui",
+  "upstream_ids": ["AC1.4.1", "AC1.4.2", "AC1.5.1", "AC1.5.2", "AC1.5.3", "AC1.5.4"],
+  "coverage": [
+    { "id": "AC1.4.1", "status": "OK", "target": "BR1.5.1" },
+    { "id": "AC1.4.2", "status": "OK", "target": "BR1.5.2" },
+    { "id": "AC1.5.1", "status": "OK", "target": "BR1.5.4" },
+    { "id": "AC1.5.2", "status": "OK", "target": "BR1.5.4" },
+    { "id": "AC1.5.3", "status": "OK", "target": "BR1.5.4" },
+    { "id": "AC1.5.4", "status": "OK", "target": "BR1.5.4" }
+  ],
+  "reverse": []
+}

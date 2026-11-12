@@ -1,0 +1,29 @@
+{
+  "stage": "code-generation",
+  "unit": "u2-telemetry",
+  "version": 1,
+  "writes": [
+    { "path": "u2_telemetry/models.py" },
+    { "path": "u2_telemetry/__init__.py" },
+    { "path": "u2_telemetry/__main__.py" },
+    { "path": "u2_telemetry/api.py" },
+    { "path": "u2_telemetry/ble_listener.py" },
+    { "path": "u2_telemetry/event_bus.py" },
+    { "path": "u2_telemetry/normalizer.py" },
+    { "path": "u2_telemetry/event_publisher.py" },
+    { "path": "u2_telemetry/callback_handler.py" },
+    { "path": "u2_telemetry/connection_handler.py" },
+    { "path": "u2_telemetry/service.py" },
+    { "path": "u2_telemetry/tests/__init__.py" },
+    { "path": "u2_telemetry/tests/test_normalizer.py" },
+    { "path": "u2_telemetry/tests/test_ble_listener.py" },
+    { "path": "u2_telemetry/tests/test_event_publisher.py" },
+    { "path": "u2_telemetry/tests/test_callback_handler.py" },
+    { "path": "u2_telemetry/tests/test_connection_handler.py" },
+    { "path": "u2_telemetry/tests/test_service.py" },
+    { "path": "pyproject.toml" },
+    { "path": "requirements.txt" },
+    { "path": "u2-telemetry.service" },
+    { "path": "DEPLOYMENT-u2-telemetry.md" }
+  ]
+}

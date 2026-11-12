@@ -63,25 +63,29 @@ asyncapi:
   payload:
     - name: direction
       type: string
-      required: true
+      required: false
       description: Robot direction (e.g., north, south)
     - name: orientation
       type: number
-      required: true
+      required: false
       description: Robot orientation in degrees
     - name: color
       type: string
-      required: true
+      required: false
       description: LED color (e.g., red, blue, green)
     - name: position
       type: string
-      required: true
+      required: false
       description: Robot position coordinates (e.g., "1.2, 0.4")
     - name: timestamp
       type: string
       required: true
       format: date-time
       description: ISO-8601 timestamp of the telemetry reading
+    - name: connectionStatus
+      type: string
+      required: false
+      description: BLE connection state (connected, disconnected, pairing, error)
   error_handling:
     - condition: Event delivery fails
       action: Fire-and-forget; no retry; next event overwrites

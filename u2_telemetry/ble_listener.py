@@ -56,9 +56,12 @@ class BLEListener:
     async def start(self) -> None:
         """Run the connect → listen → reconnect loop until stopped.
 
-        On connection error or disconnection, ``on_error`` is invoked and the
-        loop retries with exponential backoff (up to 3 attempts) before
-        yielding control back to the caller.
+        On connection error or disconnection, ``on_error`` (wired to
+        ``connection_handler.handle_error`` by the service) is invoked and the
+        loop retries with exponential backoff up to 3 attempts (NFR2.3). Once
+        the retry budget is exhausted the loop stops instead of retrying in a
+        tight unbounded loop; the retry-exhausted signal from
+        ``connection_handler.handle_error`` is honored.
         """
         self._running = True
         attempt = 0
@@ -69,10 +72,16 @@ class BLEListener:
                 await self._listen()
             except Exception as exc:  # noqa: BLE001 - surface to error handler
                 attempt += 1
-                await self._invoke_error(exc)
-                if self._running and attempt <= 3:
-                    backoff = 2 ** (attempt - 1)
-                    await asyncio.sleep(backoff)
+                retry_remaining = await self._invoke_error(exc)
+                if not self._running:
+                    break
+                if not retry_remaining or attempt >= 3:
+                    # Retry budget exhausted (NFR2.3): stop the loop. The
+                    # error has already been signaled to U1 via on_error.
+                    self._running = False
+                    break
+                backoff = 2 ** (attempt - 1)
+                await asyncio.sleep(backoff)
 
     async def _listen(self) -> None:
         """Subscribe to telemetry notifications and wait while connected."""
@@ -91,11 +100,17 @@ class BLEListener:
         finally:
             await self._client.stop_notify(TELEMETRY_CHAR_UUID)
 
-    async def _invoke_error(self, exc: Exception) -> None:
-        """Invoke the error handler, which may be sync or async."""
+    async def _invoke_error(self, exc: Exception) -> bool:
+        """Invoke the error handler, which may be sync or async.
+
+        Returns whether another reconnect attempt should be made. When the
+        error handler is ``connection_handler.handle_error`` this is its
+        retry-exhausted signal (False once the budget is exhausted).
+        """
         result = self.on_error(exc)
         if asyncio.iscoroutine(result):
-            await result
+            result = await result
+        return bool(result) if isinstance(result, bool) else True
 
     @staticmethod
     def _parse_telemetry(data: bytearray) -> dict:

@@ -12,14 +12,14 @@ Grounded in functional-spec [functional-spec], rules [rules], entities [entities
 
 | Step | Checkbox | Story | Description |
 |------|----------|-------|-------------|
-| 1 | [x] | US1.4 | Project structure and production configuration skeleton for u2-telemetry (Python package layout, pyproject.toml, entry point). |
-| 2 | [x] | US1.4 | Bootstrap the minimal test runner/configuration (pytest + coverage.py) and record the exact unit-scoped command. |
-| 3 | [x] | US1.4 | Behavior scenarios — define executable Given/When/Then examples for telemetry reception, normalization, publishing, error handling, and callback before implementation. |
-| 4 | [x] | US1.4 | Feature slice — implement the RobotTelemetry service: BLE listener, RobotState normalization (lenient), event publisher, U1 callback handler, connection error handler. |
-| 5 | [x] | US1.4 | Behavior scenarios — run the scenarios until they pass. |
-| 6 | [x] | US1.4 | Feature slice — refactor while the scenarios stay green. |
-| 7 | [x] | US1.4 | Environment/build configuration (systemd unit, requirements.txt, deployment notes). |
-| 8 | [x] | US1.4 | Documentation and traceability (code-summary.md, source-manifest.json, traceability.json written by conductor; code-side traceability via BR/Contract/NFR references in comments). |
+| 1 | [ ] | US1.4 | Project structure and production configuration skeleton for u2-telemetry (Python package layout, pyproject.toml, entry point). |
+| 2 | [ ] | US1.4 | Bootstrap the minimal test runner/configuration (pytest + coverage.py) and record the exact unit-scoped command. |
+| 3 | [ ] | US1.4 | Behavior scenarios — define executable Given/When/Then examples for telemetry reception, normalization, publishing, error handling, and callback before implementation. |
+| 4 | [ ] | US1.4 | Feature slice — implement the RobotTelemetry service: BLE listener, RobotState normalization (lenient), event publisher, U1 callback handler, connection error handler. |
+| 5 | [ ] | US1.4 | Behavior scenarios — run the scenarios until they pass. |
+| 6 | [ ] | US1.4 | Feature slice — refactor while the scenarios stay green. |
+| 7 | [ ] | US1.4 | Environment/build configuration (systemd unit, requirements.txt, deployment notes). |
+| 8 | [ ] | US1.4 | Documentation and traceability (code-summary.md, source-manifest.json, traceability.json). |
 
 ## Testing Contract
 

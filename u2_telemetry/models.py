@@ -7,7 +7,7 @@ BR1.4.1 lenient normalization (ER1).
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 import uuid
 
@@ -18,6 +18,9 @@ class RobotState:
 
     Attributes:
         stateId: Unique identifier for this telemetry reading.
+        correlation_id: Correlation identifier generated at BLE receipt and
+            propagated through normalization, publishing and delivery
+            (observability design; Contract 2).
         direction: Robot direction (e.g. "forward", "north"). "-" when missing.
         orientation: Robot orientation in degrees (0-359). None when missing.
         color: LED color (e.g. "red", "blue"). "-" when missing.
@@ -31,6 +34,7 @@ class RobotState:
     color: str
     position: str
     timestamp: str
+    correlation_id: str = field(default_factory=lambda: str(uuid.uuid4()))
 
     @classmethod
     def create(
@@ -41,11 +45,13 @@ class RobotState:
         position: str | None = None,
         timestamp: str | None = None,
         stateId: str | None = None,
+        correlation_id: str | None = None,
     ) -> "RobotState":
         """Create a RobotState with lenient placeholder defaults.
 
         Missing fields become dash/None placeholders (BR1.4.1). The timestamp
-        is backend-generated ISO-8601 when not supplied (BR1.4.5).
+        is backend-generated ISO-8601 when not supplied (BR1.4.5). The
+        correlation_id is generated at BLE receipt when not supplied.
         """
         return cls(
             stateId=stateId or str(uuid.uuid4()),
@@ -54,4 +60,5 @@ class RobotState:
             color=color if color is not None else "-",
             position=position if position is not None else "-",
             timestamp=timestamp or datetime.now(timezone.utc).isoformat(),
+            correlation_id=correlation_id or str(uuid.uuid4()),
         )

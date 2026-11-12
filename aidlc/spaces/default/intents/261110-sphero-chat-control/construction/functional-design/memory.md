@@ -2,13 +2,13 @@
 > This file is kept up to date automatically while the stage runs. Add observations at the review step, not by editing here directly.
 
 ## Interpretations
-<!-- example: 2026-05-29T10:14:32Z — chose REST over GraphQL; the consuming team only needs CRUD, revisit if subscriptions land -->
+2026-11-12T06:05:00Z — Functional Design for u3-stats-ui: UI unit (StatsDisplay SPA) subscribing to U2's RobotStateChanged events via WebSocket per Contract 2; rendering robot state, connection status, and error messages per US1.4/US1.5.
 
 ## Deviations
-<!-- example: 2026-05-29T10:14:32Z — skipped the optional caching layer the stage prose suggested; the dataset is small enough that it adds risk -->
+<!-- none -->
 
 ## Tradeoffs
-<!-- example: 2026-05-29T10:14:32Z — picked TDD over BDD this run; the team is unit-first and the domain is well-understood -->
+2026-11-12T06:05:00Z — split component architecture (StatsPanel + RobotStateDisplay + ConnectionStatus + SpeedColorSelector + ErrorMessage) instead of single component, per Q1=B; WebSocket subscription instead of polling, per Q2=A; speed/color buttons send chat commands through existing path, per Q4=A.
 
 ## Open questions
-<!-- example: 2026-05-29T10:14:32Z — confirm the retention window with compliance before the next stage hardens the schema -->
+<!-- none -->
