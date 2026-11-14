@@ -1,0 +1,32 @@
+{
+  "stage": "code-generation",
+  "unit": "u3-stats-ui",
+  "version": 1,
+  "writes": [
+    { "path": "frontend/src/types.ts" },
+    { "path": "frontend/src/constants.ts" },
+    { "path": "frontend/src/components/StatsPanel.tsx" },
+    { "path": "frontend/src/components/RobotStateDisplay.tsx" },
+    { "path": "frontend/src/components/ConnectionStatus.tsx" },
+    { "path": "frontend/src/components/LanRiskBanner.tsx" },
+    { "path": "frontend/src/components/ErrorDisplay.tsx" },
+    { "path": "frontend/src/components/SpeedColorSelector.tsx" },
+    { "path": "frontend/src/hooks/useRobotStateConnection.ts" },
+    { "path": "frontend/src/test-utils/mockWebSocket.ts" },
+    { "path": "frontend/src/test-setup.ts" },
+    { "path": "frontend/src/App.tsx" },
+    { "path": "frontend/src/main.tsx" },
+    { "path": "frontend/src/index.css" },
+    { "path": "frontend/src/components/StatsPanel.test.tsx" },
+    { "path": "frontend/src/components/ConnectionStatus.test.tsx" },
+    { "path": "frontend/src/components/LanRiskBanner.test.tsx" },
+    { "path": "frontend/src/components/ErrorDisplay.test.tsx" },
+    { "path": "frontend/src/components/SpeedColorSelector.test.tsx" },
+    { "path": "frontend/src/components/RobotStateDisplay.test.tsx" },
+    { "path": "frontend/src/hooks/useRobotStateConnection.test.ts" },
+    { "path": "frontend/src/integration-websocket-to-ui.test.tsx" },
+    { "path": "frontend/src/integration-speed-color-chat.test.tsx" },
+    { "path": "vitest.config.ts" },
+    { "path": "vite.config.ts" }
+  ]
+}

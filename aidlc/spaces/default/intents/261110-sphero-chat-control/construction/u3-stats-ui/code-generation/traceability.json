@@ -1,0 +1,433 @@
+{
+  "stage": "code-generation",
+  "unit": "u3-stats-ui",
+  "slug": "u3-stats-ui",
+  "kind": "ui",
+  "stories": [
+    "US1.4",
+    "US1.5",
+    "US1.2",
+    "US1.3"
+  ],
+  "description": "React + TypeScript + Vite + Tailwind CSS SPA stats panel that subscribes to U2's RobotState telemetry over /ws/robot-state (Contract 2) and renders direction, orientation, color, position, timestamp, connection status, error display, and inline speed/color chat-command selectors.",
+  "implementation_files": [
+    "frontend/src/types.ts",
+    "frontend/src/constants.ts",
+    "frontend/src/components/StatsPanel.tsx",
+    "frontend/src/components/RobotStateDisplay.tsx",
+    "frontend/src/components/ConnectionStatus.tsx",
+    "frontend/src/components/LanRiskBanner.tsx",
+    "frontend/src/components/ErrorDisplay.tsx",
+    "frontend/src/components/SpeedColorSelector.tsx",
+    "frontend/src/hooks/useRobotStateConnection.ts",
+    "frontend/src/test-utils/mockWebSocket.ts",
+    "frontend/src/test-setup.ts",
+    "frontend/src/App.tsx",
+    "frontend/src/main.tsx",
+    "frontend/src/index.css",
+    "vitest.config.ts",
+    "vite.config.ts",
+    "package.json",
+    "tsconfig.json",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ],
+  "test_files": [
+    "frontend/src/components/StatsPanel.test.tsx",
+    "frontend/src/components/ConnectionStatus.test.tsx",
+    "frontend/src/components/LanRiskBanner.test.tsx",
+    "frontend/src/components/ErrorDisplay.test.tsx",
+    "frontend/src/components/SpeedColorSelector.test.tsx",
+    "frontend/src/components/RobotStateDisplay.test.tsx",
+    "frontend/src/hooks/useRobotStateConnection.test.ts",
+    "frontend/src/integration-websocket-to-ui.test.tsx",
+    "frontend/src/integration-speed-color-chat.test.tsx"
+  ],
+  "build_output": "dist/ (produced by `vite build`; root index.html + assets/, consumable by U1 FastAPI static serving)",
+  "acceptance_criteria": [
+    {
+      "id": "AC1.4.1",
+      "story": "US1.4",
+      "statement": "Stats panel observability: telemetry values render on every RobotStateChanged event; connection status transitions; stale/missing fields shown as dashes.",
+      "implemented_in": [
+        "frontend/src/hooks/useRobotStateConnection.ts",
+        "frontend/src/components/StatsPanel.tsx",
+        "frontend/src/components/RobotStateDisplay.tsx",
+        "frontend/src/components/ConnectionStatus.tsx",
+        "frontend/src/types.ts",
+        "frontend/src/constants.ts"
+      ],
+      "verified_by": [
+        "frontend/src/hooks/useRobotStateConnection.test.ts",
+        "frontend/src/components/StatsPanel.test.tsx",
+        "frontend/src/components/RobotStateDisplay.test.tsx",
+        "frontend/src/components/ConnectionStatus.test.tsx",
+        "frontend/src/integration-websocket-to-ui.test.tsx"
+      ]
+    },
+    {
+      "id": "AC1.4.2",
+      "story": "US1.4",
+      "statement": "Stats panel skeleton and vitest setup: LanRiskBanner always visible and non-dismissible; disconnected status when no robot is connected; unit-scoped test command.",
+      "implemented_in": [
+        "frontend/src/components/LanRiskBanner.tsx",
+        "frontend/src/components/StatsPanel.tsx",
+        "frontend/src/components/ConnectionStatus.tsx",
+        "vitest.config.ts",
+        "vite.config.ts",
+        "package.json"
+      ],
+      "verified_by": [
+        "frontend/src/components/LanRiskBanner.test.tsx",
+        "frontend/src/components/StatsPanel.test.tsx",
+        "frontend/src/components/ConnectionStatus.test.tsx"
+      ]
+    },
+    {
+      "id": "AC1.5.2",
+      "story": "US1.5",
+      "statement": "Error message display in chat UI: ErrorDisplay renders escaped error type.",
+      "implemented_in": [
+        "frontend/src/components/ErrorDisplay.tsx",
+        "frontend/src/components/StatsPanel.tsx",
+        "frontend/src/types.ts"
+      ],
+      "verified_by": [
+        "frontend/src/components/ErrorDisplay.test.tsx",
+        "frontend/src/components/StatsPanel.test.tsx"
+      ]
+    },
+    {
+      "id": "AC1.5.3",
+      "story": "US1.5",
+      "statement": "Error message display in chat UI: ErrorDisplay renders escaped error message.",
+      "implemented_in": [
+        "frontend/src/components/ErrorDisplay.tsx",
+        "frontend/src/components/StatsPanel.tsx"
+      ],
+      "verified_by": [
+        "frontend/src/components/ErrorDisplay.test.tsx",
+        "frontend/src/components/StatsPanel.test.tsx"
+      ]
+    },
+    {
+      "id": "AC1.5.4",
+      "story": "US1.5",
+      "statement": "Error message display in chat UI: ErrorDisplay renders escaped error timestamp.",
+      "implemented_in": [
+        "frontend/src/components/ErrorDisplay.tsx",
+        "frontend/src/components/StatsPanel.tsx"
+      ],
+      "verified_by": [
+        "frontend/src/components/ErrorDisplay.test.tsx",
+        "frontend/src/components/StatsPanel.test.tsx"
+      ]
+    }
+  ],
+  "business_rules": [
+    {
+      "id": "BR1.5.1",
+      "statement": "Render robot state on stats panel, updated on every RobotStateChanged event.",
+      "implemented_in": [
+        "frontend/src/hooks/useRobotStateConnection.ts",
+        "frontend/src/components/StatsPanel.tsx",
+        "frontend/src/components/RobotStateDisplay.tsx"
+      ],
+      "verified_by": [
+        "frontend/src/hooks/useRobotStateConnection.test.ts",
+        "frontend/src/components/RobotStateDisplay.test.tsx",
+        "frontend/src/integration-websocket-to-ui.test.tsx"
+      ]
+    },
+    {
+      "id": "BR1.5.2",
+      "statement": "Show BLE connection status on the stats panel (connected/disconnected/pairing/error, reconnecting attempt N).",
+      "implemented_in": [
+        "frontend/src/hooks/useRobotStateConnection.ts",
+        "frontend/src/components/StatsPanel.tsx",
+        "frontend/src/components/ConnectionStatus.tsx"
+      ],
+      "verified_by": [
+        "frontend/src/hooks/useRobotStateConnection.test.ts",
+        "frontend/src/components/ConnectionStatus.test.tsx",
+        "frontend/src/integration-websocket-to-ui.test.tsx"
+      ]
+    },
+    {
+      "id": "BR1.5.3",
+      "statement": "Render missing RobotState fields as dashes (missing or explicit null).",
+      "implemented_in": [
+        "frontend/src/components/RobotStateDisplay.tsx",
+        "frontend/src/hooks/useRobotStateConnection.ts",
+        "frontend/src/constants.ts"
+      ],
+      "verified_by": [
+        "frontend/src/components/RobotStateDisplay.test.tsx",
+        "frontend/src/hooks/useRobotStateConnection.test.ts",
+        "frontend/src/components/StatsPanel.test.tsx"
+      ]
+    },
+    {
+      "id": "BR1.5.4",
+      "statement": "Display error messages in the chat UI.",
+      "implemented_in": [
+        "frontend/src/components/ErrorDisplay.tsx",
+        "frontend/src/components/StatsPanel.tsx"
+      ],
+      "verified_by": [
+        "frontend/src/components/ErrorDisplay.test.tsx",
+        "frontend/src/components/StatsPanel.test.tsx"
+      ]
+    },
+    {
+      "id": "BR1.5.5",
+      "statement": "Inline speed/color buttons send chat commands to U1 (set speed <level> / set color <color>).",
+      "implemented_in": [
+        "frontend/src/components/SpeedColorSelector.tsx",
+        "frontend/src/components/StatsPanel.tsx"
+      ],
+      "verified_by": [
+        "frontend/src/components/SpeedColorSelector.test.tsx",
+        "frontend/src/integration-speed-color-chat.test.tsx",
+        "frontend/src/components/StatsPanel.test.tsx"
+      ]
+    }
+  ],
+  "non_functional_requirements": [
+    {
+      "id": "NFR1",
+      "statement": "System shall run on the local network only; no cloud hosting or access from outside the LAN.",
+      "implemented_in": [
+        "aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u3-stats-ui/infrastructure-design/infrastructure-specification.md"
+      ],
+      "notes": "Served as static files by U1's FastAPI backend over LAN HTTP; no cloud resources, containers, or public ingress."
+    },
+    {
+      "id": "NFR1.2",
+      "statement": "Safe rendering of telemetry and errors: all values rendered as React-escaped text; no dangerouslySetInnerHTML; no raw HTML injection path.",
+      "implemented_in": [
+        "frontend/src/components/RobotStateDisplay.tsx",
+        "frontend/src/components/ErrorDisplay.tsx",
+        "frontend/src/components/StatsPanel.tsx",
+        "frontend/src/components/ConnectionStatus.tsx",
+        "frontend/src/components/LanRiskBanner.tsx",
+        "frontend/src/components/SpeedColorSelector.tsx"
+      ],
+      "verified_by": [
+        "frontend/src/components/ErrorDisplay.test.tsx",
+        "frontend/src/components/RobotStateDisplay.test.tsx"
+      ]
+    },
+    {
+      "id": "NFR1.3",
+      "statement": "No secrets in the frontend bundle; OPENROUTER_API_KEY stays in U1's .env; U3 never calls OpenRouter directly.",
+      "implemented_in": [
+        "aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u3-stats-ui/nfr-design/security-design.md"
+      ],
+      "notes": "No credentials in frontend source; dist/ static assets contain no keys. CI deterministic bundle secret scan gate is enforced outside this stage (not implemented here)."
+    },
+    {
+      "id": "NFR1.4",
+      "statement": "Unauthenticated LAN WebSocket accepted risk, documented by an always-visible, non-dismissible LanRiskBanner.",
+      "implemented_in": [
+        "frontend/src/components/LanRiskBanner.tsx",
+        "frontend/src/components/StatsPanel.tsx",
+        "frontend/src/constants.ts"
+      ],
+      "verified_by": [
+        "frontend/src/components/LanRiskBanner.test.tsx",
+        "frontend/src/components/StatsPanel.test.tsx"
+      ]
+    },
+    {
+      "id": "NFR1.5",
+      "statement": "Missing-field fallback: fields absent or explicitly null render as a dash.",
+      "implemented_in": [
+        "frontend/src/components/RobotStateDisplay.tsx",
+        "frontend/src/hooks/useRobotStateConnection.ts",
+        "frontend/src/constants.ts"
+      ],
+      "verified_by": [
+        "frontend/src/components/RobotStateDisplay.test.tsx",
+        "frontend/src/hooks/useRobotStateConnection.test.ts",
+        "frontend/src/components/StatsPanel.test.tsx"
+      ]
+    },
+    {
+      "id": "NFR2",
+      "statement": "Backend shall run on Linux and connect to the Sphero Mini via BlueZ + bleak/pygatt.",
+      "implemented_in": [
+        "u2_telemetry/ (U2 backend service)"
+      ],
+      "notes": "Out of scope for u3-stats-ui (implemented in U2). U3 consumes U2's telemetry events over Contract 2."
+    },
+    {
+      "id": "NFR3",
+      "statement": "SPA stats panel shall show direction, orientation, color, and position, refreshed on every robot state change.",
+      "implemented_in": [
+        "frontend/src/hooks/useRobotStateConnection.ts",
+        "frontend/src/components/StatsPanel.tsx"
+      ],
+      "notes": "Render-every-event subscription; native WebSocket on mount; every valid event applied immediately with no buffering/coalescing."
+    },
+    {
+      "id": "NFR3.1",
+      "statement": "Refresh on every event: subscribe for life of page and apply every delivered valid RobotStateChanged event.",
+      "implemented_in": [
+        "frontend/src/hooks/useRobotStateConnection.ts"
+      ],
+      "verified_by": [
+        "frontend/src/hooks/useRobotStateConnection.test.ts",
+        "frontend/src/integration-websocket-to-ui.test.tsx"
+      ]
+    },
+    {
+      "id": "NFR3.2",
+      "statement": "Event-to-render latency: values appear as soon as the browser paints them (same tick, no batching/timing target).",
+      "implemented_in": [
+        "frontend/src/hooks/useRobotStateConnection.ts",
+        "frontend/src/components/StatsPanel.tsx"
+      ],
+      "verified_by": [
+        "frontend/src/integration-websocket-to-ui.test.tsx"
+      ]
+    },
+    {
+      "id": "NFR3.3",
+      "statement": "Sustained event rate (10 events/sec): render each event as it arrives; no coalescing or throttle.",
+      "implemented_in": [
+        "frontend/src/hooks/useRobotStateConnection.ts"
+      ],
+      "notes": "No event queue, throttle, or requestAnimationFrame batching; React reconciliation updates only changed fields."
+    },
+    {
+      "id": "NFR3.4",
+      "statement": "Stream recovery — exponential backoff: 1s / 2s / 4s / 8s capped at 30s, with visible reconnect attempt counter.",
+      "implemented_in": [
+        "frontend/src/hooks/useRobotStateConnection.ts",
+        "frontend/src/constants.ts",
+        "frontend/src/components/ConnectionStatus.tsx"
+      ],
+      "verified_by": [
+        "frontend/src/hooks/useRobotStateConnection.test.ts",
+        "frontend/src/components/ConnectionStatus.test.tsx",
+        "frontend/src/integration-websocket-to-ui.test.tsx"
+      ]
+    },
+    {
+      "id": "NFR3.5",
+      "statement": "Stale-data display: last known values marked stale; stale marker clears on first new valid event after reconnect (not on socket open).",
+      "implemented_in": [
+        "frontend/src/hooks/useRobotStateConnection.ts",
+        "frontend/src/components/StatsPanel.tsx",
+        "frontend/src/components/ConnectionStatus.tsx"
+      ],
+      "verified_by": [
+        "frontend/src/hooks/useRobotStateConnection.test.ts",
+        "frontend/src/components/StatsPanel.test.tsx",
+        "frontend/src/integration-websocket-to-ui.test.tsx"
+      ]
+    },
+    {
+      "id": "NFR4",
+      "statement": "No specific timing target for chat→robot latency.",
+      "implemented_in": [],
+      "notes": "No timing assertions in the test suite; verified behaviourally."
+    },
+    {
+      "id": "NFR5",
+      "statement": "No formal WCAG requirement; keep UI usable but do not certify.",
+      "implemented_in": [],
+      "notes": "Native button semantics and readable text contrast; no WCAG conformance target."
+    },
+    {
+      "id": "NFR6",
+      "statement": "React SPA shall use Vitest + React Testing Library for testing.",
+      "implemented_in": [
+        "vitest.config.ts",
+        "frontend/src/test-setup.ts",
+        "frontend/src/test-utils/mockWebSocket.ts"
+      ],
+      "verified_by": [
+        "All frontend test files"
+      ]
+    },
+    {
+      "id": "NFR7",
+      "statement": "Test coverage shall meet an 80% line-coverage floor; tests run in CI before merge; failure blocks merge.",
+      "implemented_in": [],
+      "notes": "Coverage floor enforced by Build and Test on the full suite in CI; not weakened for this stage. Coverage provider not installed locally (out of scope to install); gate runs in CI."
+    },
+    {
+      "id": "NFR8",
+      "statement": "Test methodology is BDD (Given/When/Then scenarios first, then implement, then run tests).",
+      "implemented_in": [
+        "All frontend test files"
+      ],
+      "notes": "Each test is written as an executable Given/When/Then scenario."
+    }
+  ],
+  "contracts": [
+    {
+      "id": "Contract 2",
+      "topic": "robot.state.changed",
+      "provider": "U2 (u2-telemetry)",
+      "consumer": "U3 (u3-stats-ui)",
+      "mechanism": "Event (publish/subscribe) over WebSocket /ws/robot-state",
+      "implemented_in": [
+        "frontend/src/hooks/useRobotStateConnection.ts",
+        "frontend/src/constants.ts"
+      ],
+      "notes": "Fire-and-forget, no retry; payload fields direction/orientation/color/position/connectionStatus optional, timestamp required date-time."
+    }
+  ],
+  "quality_results": {
+    "tests_passed": 45,
+    "test_files": 9,
+    "typescript_clean": true,
+    "build_output": "dist/ produced successfully (index.html, assets/*.css, assets/*.js)",
+    "coverage_floor": "80% line coverage enforced by Build and Test in CI (not locally measurable without @vitest/coverage-v8, which is not a declared dependency)",
+    "secrets_in_bundle": "none (no OPENROUTER_API_KEY or credential patterns in frontend source)",
+    "dangerously_set_inner_html": "none"
+  },
+  "upstream_ids": [
+    "AC1.4.1",
+    "AC1.4.2",
+    "AC1.5.1",
+    "AC1.5.2",
+    "AC1.5.3",
+    "AC1.5.4",
+    "NFR3.1",
+    "NFR3.2",
+    "NFR3.3",
+    "NFR4.2",
+    "NFR3.4",
+    "NFR3.5",
+    "NFR1.2",
+    "NFR1.3",
+    "NFR1.4",
+    "NFR1.5",
+    "BR1.5",
+    "BR1.4"
+  ],
+  "coverage": [
+    { "id": "AC1.4.1", "status": "OK", "target": "frontend/src/hooks/useRobotStateConnection.ts" },
+    { "id": "AC1.4.2", "status": "OK", "target": "frontend/src/components/LanRiskBanner.tsx" },
+    { "id": "AC1.5.1", "status": "OK", "target": "frontend/src/components/ErrorDisplay.tsx" },
+    { "id": "AC1.5.2", "status": "OK", "target": "frontend/src/components/ErrorDisplay.tsx" },
+    { "id": "AC1.5.3", "status": "OK", "target": "frontend/src/components/ErrorDisplay.tsx" },
+    { "id": "AC1.5.4", "status": "OK", "target": "frontend/src/components/ErrorDisplay.tsx" },
+    { "id": "NFR3.1", "status": "OK", "target": "frontend/src/hooks/useRobotStateConnection.ts" },
+    { "id": "NFR3.2", "status": "OK", "target": "frontend/src/hooks/useRobotStateConnection.ts" },
+    { "id": "NFR3.3", "status": "OK", "target": "frontend/src/hooks/useRobotStateConnection.ts" },
+    { "id": "NFR4.2", "status": "OK", "target": "frontend/src/hooks/useRobotStateConnection.ts" },
+    { "id": "NFR3.4", "status": "OK", "target": "frontend/src/hooks/useRobotStateConnection.ts" },
+    { "id": "NFR3.5", "status": "OK", "target": "frontend/src/hooks/useRobotStateConnection.ts" },
+    { "id": "NFR1.2", "status": "OK", "target": "frontend/src/components/RobotStateDisplay.tsx" },
+    { "id": "NFR1.3", "status": "OK", "target": "frontend/src/components/StatsPanel.tsx" },
+    { "id": "NFR1.4", "status": "OK", "target": "frontend/src/components/LanRiskBanner.tsx" },
+    { "id": "NFR1.5", "status": "OK", "target": "frontend/src/components/RobotStateDisplay.tsx" },
+    { "id": "BR1.5", "status": "OK", "target": "frontend/src/components/StatsPanel.tsx" },
+    { "id": "BR1.4", "status": "OK", "target": "frontend/src/components/StatsPanel.tsx" }
+  ]
+}

@@ -27,4 +27,26 @@ aidlc/spaces/*/intents/*/runtime-graph.json
 aidlc/spaces/*/intents/*/.aidlc-*
 aidlc/diagnostics/
 # END AI-DLC:gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Node and Vite
+node_modules/
+dist/
+coverage/
+.vite/
+*.tsbuildinfo
+npm-debug.log*
+
 tmp/*
