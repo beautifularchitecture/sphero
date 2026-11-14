@@ -1,0 +1,25 @@
+{
+  "stage": "nfr-requirements",
+  "unit": "u3-stats-ui",
+  "upstream_ids": [
+    "NFR1",
+    "NFR2",
+    "NFR3",
+    "NFR4",
+    "NFR5",
+    "NFR6",
+    "NFR7",
+    "NFR8"
+  ],
+  "coverage": [
+    { "id": "NFR1", "status": "OK", "target": "NFR1.2, NFR1.3, NFR1.4, NFR1.5" },
+    { "id": "NFR2", "status": "N/A", "target": "BLE pairing and connection handling stay in U1/U2; U3 only displays the connectionStatus it receives and never touches Bluetooth itself" },
+    { "id": "NFR3", "status": "OK", "target": "NFR3.1, NFR3.2, NFR3.3, NFR3.4, NFR3.5" },
+    { "id": "NFR4", "status": "N/A", "target": "chat-to-robot latency is owned by U1; U3's selector buttons reuse the chat path without adding a timing budget" },
+    { "id": "NFR5", "status": "OK", "target": "tech-stack-decisions.md > Styling > Accessibility posture: readable contrast ≥4.5:1; native buttons and semantic HTML; no WCAG certification" },
+    { "id": "NFR6", "status": "OK", "target": "tech-stack-decisions.md > Testing and Quality Gates > Test runner: Vitest + React Testing Library" },
+    { "id": "NFR7", "status": "OK", "target": "tech-stack-decisions.md > Testing and Quality Gates > Coverage floor: 80% line enforced in CI; CI failure blocks merge" },
+    { "id": "NFR8", "status": "OK", "target": "tech-stack-decisions.md > Testing and Quality Gates > Test methodology: BDD Given/When/Then" }
+  ],
+  "reverse": []
+}

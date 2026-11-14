@@ -1,0 +1,132 @@
+{
+  "upstream_ids": [
+    "NFR3.1",
+    "NFR3.2",
+    "NFR3.3",
+    "NFR3.4",
+    "NFR3.5",
+    "NFR1.2",
+    "NFR1.3",
+    "NFR1.4",
+    "NFR1.5"
+  ],
+  "traceability": {
+    "NFR3": {
+      "NFR3.1": {
+        "requirement": "Refresh on every event",
+        "decision": "Render-every-event subscription — initiate on mount and re-establish on reconnect; apply every delivered event",
+        "artifact": "performance-design.md",
+        "status": "designed"
+      },
+      "NFR3.2": {
+        "requirement": "Event-to-render latency",
+        "decision": "No measured target; values appear as soon as the browser renders them",
+        "artifact": "performance-design.md",
+        "status": "designed"
+      },
+      "NFR3.3": {
+        "requirement": "Sustained event rate (10 events/sec)",
+        "decision": "Render each event as it arrives; no coalescing, no throttle",
+        "artifact": "performance-design.md",
+        "status": "designed"
+      },
+      "NFR3.4": {
+        "requirement": "Stream recovery — exponential backoff",
+        "decision": "Client-owned reconnection with 1s → 2s → 4s → 8s, capped at 30s; attempt counter visible; malformed frames ignored without breaking recovery",
+        "artifact": "performance-design.md",
+        "status": "designed"
+      },
+      "NFR3.5": {
+        "requirement": "Stale-data display",
+        "decision": "Last known values marked stale; connection indicator shows disconnected; timestamp stops advancing; stale clears on first new valid event",
+        "artifact": "performance-design.md",
+        "status": "designed"
+      }
+    },
+    "NFR1": {
+      "NFR1.2": {
+        "requirement": "Safe rendering of telemetry and errors",
+        "decision": "React-escaped text; no dangerouslySetInnerHTML; malformed/non-JSON payloads dropped and logged to console.error without rendering",
+        "artifact": "security-design.md",
+        "status": "designed"
+      },
+      "NFR1.3": {
+        "requirement": "No secrets in the frontend",
+        "decision": "OPENROUTER_API_KEY stays in U1's .env; U3 never calls OpenRouter directly; CI bundle scan targets specific secret patterns in dist/",
+        "artifact": "security-design.md",
+        "status": "designed"
+      },
+      "NFR1.4": {
+        "requirement": "Unauthenticated LAN WebSocket",
+        "decision": "No token or credential in handshake; always-visible LanRiskBanner in StatsPanel displays accepted LAN risk covering telemetry and chat commands",
+        "artifact": "security-design.md, logical-components.md",
+        "status": "designed"
+      },
+      "NFR1.5": {
+        "requirement": "Missing-field fallback",
+        "decision": "Fields absent or null render as dash; aligns with BR1.5.3",
+        "artifact": "security-design.md",
+        "status": "designed"
+      }
+    },
+    "Tech_Stack": {
+      "Framework": {
+        "decision": "React",
+        "artifact": "tech-stack-decisions.md",
+        "status": "carried-forward"
+      },
+      "Language": {
+        "decision": "TypeScript",
+        "artifact": "tech-stack-decisions.md",
+        "status": "carried-forward"
+      },
+      "Build tool": {
+        "decision": "Vite",
+        "artifact": "tech-stack-decisions.md",
+        "status": "carried-forward"
+      },
+      "Styling": {
+        "decision": "Tailwind CSS utility classes",
+        "artifact": "tech-stack-decisions.md",
+        "status": "carried-forward"
+      },
+      "Test runner": {
+        "decision": "Vitest + React Testing Library",
+        "artifact": "tech-stack-decisions.md",
+        "status": "carried-forward"
+      },
+      "Coverage floor": {
+        "decision": "80% line coverage, not weakenable",
+        "artifact": "tech-stack-decisions.md",
+        "status": "carried-forward"
+      }
+    },
+    "Functional": {
+      "US1.4": {
+        "requirement": "Stats panel observability (AC1.4.1–AC1.4.2)",
+        "decision": "StatsPanel, ConnectionStatus, event counter, and stale/reconnect indicators designed to satisfy observability acceptance criteria",
+        "artifact": "functional-spec.md, logical-components.md, performance-design.md",
+        "status": "addressed"
+      },
+      "US1.5": {
+        "requirement": "Error handling and rephrase (AC1.5.1–AC1.5.4 partial — error display)",
+        "decision": "ErrorDisplay component designed to render error type/message/timestamp for errors surfaced to U3; chat-UI ownership clarified as consumed surface",
+        "artifact": "functional-spec.md, logical-components.md, security-design.md",
+        "status": "addressed"
+      }
+    },
+    "Contract": {
+      "Contract_2": {
+        "provider": "U2 (u2-telemetry)",
+        "consumer": "U3 (u3-stats-ui)",
+        "mechanism": "Event (publish/subscribe)",
+        "decision": "U3 consumes RobotStateChanged via WebSocket with at-most-once/no-replay assumption and reconnect/stale behavior per NFR3",
+        "artifact": "contract-summary.md, performance-design.md",
+        "status": "addressed"
+      }
+    }
+  },
+  "generated_at": "2026-11-14T23:30:00Z",
+  "unit": "u3-stats-ui",
+  "stage": "nfr-design"
+}

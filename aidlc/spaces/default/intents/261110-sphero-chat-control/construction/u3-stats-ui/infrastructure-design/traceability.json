@@ -1,0 +1,68 @@
+{
+  "stage": "infrastructure-design",
+  "unit": "u3-stats-ui",
+  "upstream_ids": [
+    "NFR3.1",
+    "NFR3.4",
+    "NFR3.2",
+    "NFR3.3",
+    "NFR4.2",
+    "NFR3.5",
+    "NFR1.2",
+    "NFR1.3",
+    "NFR1.4",
+    "NFR1.5"
+  ],
+  "coverage": [
+    {
+      "id": "NFR3.1",
+      "status": "OK",
+      "target": "Browser SPA runtime + U1 static hosting (infrastructure-specification.md: Deployment/Services) and UI event-application SLI (monitoring-design.md: Metrics & SLIs) support applying every valid RobotStateChanged event"
+    },
+    {
+      "id": "NFR3.2",
+      "status": "N/A",
+      "target": "No infrastructure resource/config required; latency is behavioural/browser-render dependent with no measured target per performance-design"
+    },
+    {
+      "id": "NFR3.3",
+      "status": "OK",
+      "target": "Client-side render-every-event approach at 10 events/sec sustained within browser runtime; no buffering/throttle infrastructure provisioned (infrastructure-specification.md, monitoring-design.md)"
+    },
+    {
+      "id": "NFR3.4",
+      "status": "OK",
+      "target": "Client-owned WebSocket reconnection/backoff and reconnect-attempt UI indicator (monitoring-design.md: Metrics/Alerts; infrastructure-specification.md: networking/Contract 2 dependency)"
+    },
+    {
+      "id": "NFR4.2",
+      "status": "OK",
+      "target": "U2 telemetry ceiling (10 events/sec) treated as upstream operating constraint for UI handling; no additional u3 infrastructure provisioned beyond browser/hosting (infrastructure-specification.md design notes, monitoring-design.md)"
+    },
+    {
+      "id": "NFR3.5",
+      "status": "OK",
+      "target": "Stale marker, last-update freeze, and connection status indicators in SPA operator view (monitoring-design.md: Metrics/Alerts/SLIs) with state held in browser memory"
+    },
+    {
+      "id": "NFR1.2",
+      "status": "OK",
+      "target": "Safe rendering enforced in SPA components and malformed-frame drop diagnostics; no raw HTML injection infrastructure path (infrastructure-specification.md context, monitoring-design.md logs, cicd-pipeline.md tests)"
+    },
+    {
+      "id": "NFR1.3",
+      "status": "OK",
+      "target": "CI build + deterministic dist secret scan gate and secrets handling prevent frontend credential leakage (cicd-pipeline.md: Stage 7, Secrets Management; monitoring-design.md alert)"
+    },
+    {
+      "id": "NFR1.4",
+      "status": "OK",
+      "target": "LAN-only deployment/networking with unauthenticated WebSocket accepted risk and always-visible LanRiskBanner in UI; no public ingress provisioned (infrastructure-specification.md: Deployment/Design Notes, monitoring-design.md dashboard)"
+    },
+    {
+      "id": "NFR1.5",
+      "status": "N/A",
+      "target": "No infrastructure resource/config required; missing/null field rendering is a UI/component behaviour handled in application design"
+    }
+  ]
+}
