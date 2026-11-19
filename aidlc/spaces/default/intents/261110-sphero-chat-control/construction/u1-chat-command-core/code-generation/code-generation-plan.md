@@ -4,9 +4,38 @@ Grounded in functional design [functional-spec], requirements [requirements], un
 
 ## Plan Summary
 
-- Builds: chat input endpoint, AI agent translation service, Bluetooth LE robot command sender, chat UI, stats panel UI, websocket integration
-- Touches: backend app package, frontend React SPA package
-- Tests: pytest + coverage.py for Python backend; Vitest + React Testing Library for React SPA
+- Builds: chat input validation, AI agent translation service, Bluetooth LE robot command sender, FastAPI app with `/health` and the chat WebSocket, structured error logging, and the chat window/API client that supplies chat commands to the stats panel
+- Touches: `backend/app/`, `tests/`, `frontend/src/components/ChatWindow.tsx`, `frontend/src/services/api.ts`, `frontend/src/App.tsx` (composition and `onSendChatCommand` wiring), `requirements.txt`
+- Does **not** touch U3-owned files: `StatsPanel.tsx`, `ConnectionStatus.tsx`, `RobotStateDisplay.tsx`, `ErrorDisplay.tsx`, `LanRiskBanner.tsx`, `SpeedColorSelector.tsx`, `hooks/useRobotStateConnection.ts`, `types.ts`, `constants.ts`
+- Tests: pytest + coverage.py for the Python backend (BDD scenarios, 80% line floor)
+
+## Loop-Back Repair (attempt 2)
+
+Triggered by Build and Test loop-back 1 (`2026-11-15T21:51:37Z`,
+`construction/build-and-test/test-results.md`). The previous attempt produced
+plan/summary/traceability artefacts only: no `backend/app` source, no `tests/`,
+and no U1 frontend. The repair must:
+
+1. Write the six planned backend modules: `main.py` (FastAPI app, chat
+   WebSocket, `/health`, static SPA serving), `chat_input.py` (validation and
+   forwarding), `agent_command.py` (LangChain Deep Agents + OpenRouter
+   translation with an injectable model client), `robot_command.py` (BLE command
+   sender with retry/reconnect), `config.py` (`.env` loading), `models.py`
+   (Pydantic models).
+2. Keep LLM and BLE at injectable boundaries so the pytest suite needs neither
+   an OpenRouter key nor a robot.
+3. Add the runtime dependencies to `requirements.txt` (LangChain Deep Agents and
+   the OpenRouter client) alongside the existing `bleak`/`fastapi` pins.
+4. Write the planned pytest suites under `tests/` with Given/When/Then
+   scenarios: chat input validation, agent translation, and robot command
+   execution with mocked BLE. The unit command stays
+   `pytest tests/ --cov=backend/app --cov-report=term-missing`.
+5. Implement the frontend slice U1 owns: `ChatWindow.tsx`,
+   `services/api.ts`, and `App.tsx` composing `ChatWindow` + U3's `StatsPanel`
+   and passing `onSendChatCommand` so the selector buttons are enabled.
+6. Update `traceability.json` so FR1.1, FR1.2, FR2 and AC1.1.1–AC1.3.3 point at
+   real implementation/test files, and NFR targets use
+   `../nfr-design/<file>` paths that resolve.
 
 ## User Story Mapping
 
@@ -16,25 +45,46 @@ Grounded in functional design [functional-spec], requirements [requirements], un
 | US1.2 | AC1.2.1–AC1.2.3 | backend/app/agent_command.py, backend/app/robot_command.py | tests/agent_command/test_agent_command_speed.py, tests/robot_command/test_robot_command_speed.py |
 | US1.3 | AC1.3.1–AC1.3.3 | backend/app/agent_command.py, backend/app/robot_command.py | tests/agent_command/test_agent_command_color.py, tests/robot_command/test_robot_command_color.py |
 
+**Frontend ownership after the repair.** U1 owns `frontend/src/components/ChatWindow.tsx`,
+`frontend/src/services/api.ts` and the `App.tsx` composition. U3 owns the stats
+components and the WebSocket hook; U1 passes `onSendChatCommand` into
+`StatsPanel` and renders chat errors through U3's `ErrorDisplay` props rather
+than creating a second stats panel. No U3 component is rewritten by this unit.
+
 ## Plan Steps
 
-1. Set up Python backend project structure (FastAPI, websockets, package structure)
-2. Implement ChatInput module — chat input validation and forwarding to AgentCommand
-3. Implement AgentCommand module — LangChain Deep Agents + OpenRouter chat-to-command translation
-4. Implement RobotCommand module — Bluetooth LE command sending to Sphero Mini
-5. Implement React frontend — chat window, stats panel, connection status indicator
-6. Implement frontend websocket client for chat input and telemetry updates
-7. Implement inline speed/color selector buttons
-8. Write unit tests for all components (pytest for backend, Vitest for frontend)
-9. Run full test suite and verify coverage floor (80%)
-10. Verify walking skeleton end-to-end: chat → agent → Bluetooth → robot movement → stats update
+1. Set up the Python backend package under `backend/app/` (`__init__.py`, `config.py`, `models.py`) and add the runtime dependencies to `requirements.txt`
+2. Implement ChatInput module — chat input validation (non-empty, UTF-8, command pattern) and forwarding to AgentCommand
+3. Implement AgentCommand module — LangChain Deep Agents + OpenRouter chat-to-command translation behind an injectable model client
+4. Implement RobotCommand module — Bluetooth LE command sending to Sphero Mini with retry-once, backoff, and reconnect
+5. Implement the FastAPI app — chat WebSocket, `/health`, structured logging, error surfacing, static SPA serving from `dist/`
+6. Implement the U1 chat window and API client — `ChatWindow.tsx`, `services/api.ts`
+7. Compose `App.tsx` — render `ChatWindow` + U3's `StatsPanel`, pass `onSendChatCommand`, forward errors
+8. Write pytest suites under `tests/` — chat input, agent command, robot command (mocked BLE and model client), Given/When/Then scenarios
+9. Run `python3 -m pytest tests/ --cov=backend/app --cov-report=term-missing` and reach the 80% line floor
+10. Verify the u1 walking-skeleton slice (chat → agent → BLE command) with mocks; stats rendering is U2/U3's verified slice
+11. Update `traceability.json` — map FR1.1/FR1.2/FR2 and AC1.1.x–AC1.3.x to real files; point NFR targets at `../nfr-design/<file>`
+12. Refresh `code-summary.md` and `source-manifest.json` to match the files actually written
 
 ## Implementation Order
 
-1. ChatInput — receives chat input, validates, forwards to AgentCommand
-2. AgentCommand — translates chat to robot commands via LangChain Deep Agents + OpenRouter
-3. RobotCommand — sends robot commands to Sphero Mini via Bluetooth LE
-4. WebSocket integration — connects chat input and stats panel to backend
+1. Config + models + dependency pins (everything else imports these)
+2. ChatInput — receives chat input, validates, forwards to AgentCommand
+3. AgentCommand — translates chat to robot commands via an injectable LangChain Deep Agents/OpenRouter client
+4. RobotCommand — sends robot commands to Sphero Mini via Bluetooth LE, with retry and reconnect
+5. FastAPI app — chat WebSocket, `/health`, structured logging, static `dist/` serving
+6. ChatWindow + `services/api.ts` + `App.tsx` composition with `onSendChatCommand`
+7. Pytest suites (mock BLE and the model client), then coverage run
+8. Traceability, code summary and source manifest refresh
+
+## Assumptions & Open Questions
+
+- Sphero Mini Bluetooth LE pairing must be completed before a live robot run
+- OpenRouter API key must be configured in `.env` before a live agent run; the automated suite uses an injected fake client and needs no key
+- Frontend and backend run on the same machine (localhost)
+- No multi-user support (single-user desktop application)
+- No cloud hosting (LAN-only per NFR1)
+- The repair assumes U3's stats components stay as built; U1 only wires them into `App.tsx`. If U3's replay changes their props, U1's `App.tsx` follows the U3 prop types.
 
 ## Testing Contract
 
@@ -97,10 +147,4 @@ Grounded in functional design [functional-spec], requirements [requirements], un
 }
 ```
 
-## Assumptions & Open Questions
 
-- Sphero Mini Bluetooth LE pairing must be completed before testing robot command execution
-- OpenRouter API key must be configured in `.env` before testing agent command translation
-- Frontend and backend run on the same machine (localhost)
-- No multi-user support (single-user desktop application)
-- No cloud hosting (LAN-only per NFR1)
