@@ -53,18 +53,18 @@ than creating a second stats panel. No U3 component is rewritten by this unit.
 
 ## Plan Steps
 
-1. Set up the Python backend package under `backend/app/` (`__init__.py`, `config.py`, `models.py`) and add the runtime dependencies to `requirements.txt`
-2. Implement ChatInput module — chat input validation (non-empty, UTF-8, command pattern) and forwarding to AgentCommand
-3. Implement AgentCommand module — LangChain Deep Agents + OpenRouter chat-to-command translation behind an injectable model client
-4. Implement RobotCommand module — Bluetooth LE command sending to Sphero Mini with retry-once, backoff, and reconnect
-5. Implement the FastAPI app — chat WebSocket, `/health`, structured logging, error surfacing, static SPA serving from `dist/`
-6. Implement the U1 chat window and API client — `ChatWindow.tsx`, `services/api.ts`
-7. Compose `App.tsx` — render `ChatWindow` + U3's `StatsPanel`, pass `onSendChatCommand`, forward errors
-8. Write pytest suites under `tests/` — chat input, agent command, robot command (mocked BLE and model client), Given/When/Then scenarios
-9. Run `python3 -m pytest tests/ --cov=backend/app --cov-report=term-missing` and reach the 80% line floor
-10. Verify the u1 walking-skeleton slice (chat → agent → BLE command) with mocks; stats rendering is U2/U3's verified slice
-11. Update `traceability.json` — map FR1.1/FR1.2/FR2 and AC1.1.x–AC1.3.x to real files; point NFR targets at `../nfr-design/<file>`
-12. Refresh `code-summary.md` and `source-manifest.json` to match the files actually written
+1. [x] Set up the Python backend package under `backend/app/` (`__init__.py`, `config.py`, `models.py`) and add the runtime dependencies to `requirements.txt`
+2. [x] Implement ChatInput module — chat input validation (non-empty, UTF-8, command pattern) and forwarding to AgentCommand
+3. [x] Implement AgentCommand module — LangChain Deep Agents + OpenRouter chat-to-command translation behind an injectable model client
+4. [x] Implement RobotCommand module — Bluetooth LE command sending to Sphero Mini with retry-once, backoff, and reconnect
+5. [x] Implement the FastAPI app — chat WebSocket, `/health`, structured logging, error surfacing, static SPA serving from `dist/`
+6. [x] Implement the U1 chat window and API client — `ChatWindow.tsx`, `services/api.ts`
+7. [x] Compose `App.tsx` — render `ChatWindow` + U3's `StatsPanel`, pass `onSendChatCommand`, forward errors
+8. [x] Write pytest suites under `tests/` — chat input, agent command, robot command (mocked BLE and model client), Given/When/Then scenarios
+9. [x] Run `python3 -m pytest tests/ --cov=backend/app --cov-report=term-missing` and reach the 80% line floor
+10. [x] Verify the u1 walking-skeleton slice (chat → agent → BLE command) with mocks; stats rendering is U2/U3's verified slice
+11. [x] Update `traceability.json` — map FR1.1/FR1.2/FR2 and AC1.1.x–AC1.3.x to real files; point NFR targets at `../nfr-design/<file>`
+12. [x] Refresh `code-summary.md` and `source-manifest.json` to match the files actually written
 
 ## Implementation Order
 

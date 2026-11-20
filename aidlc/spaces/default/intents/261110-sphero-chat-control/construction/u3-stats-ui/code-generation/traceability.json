@@ -382,11 +382,11 @@
     }
   ],
   "quality_results": {
-    "tests_passed": 45,
-    "test_files": 9,
+    "tests_passed": 65,
+    "test_files": 11,
     "typescript_clean": true,
     "build_output": "dist/ produced successfully (index.html, assets/*.css, assets/*.js)",
-    "coverage_floor": "80% line coverage enforced by Build and Test in CI (not locally measurable without @vitest/coverage-v8, which is not a declared dependency)",
+    "coverage_floor": "80% line coverage enforced by Build and Test in CI; @vitest/coverage-v8 installed, full suite measured at 94.16% lines",
     "secrets_in_bundle": "none (no OPENROUTER_API_KEY or credential patterns in frontend source)",
     "dangerously_set_inner_html": "none"
   },
@@ -407,6 +407,8 @@
     "NFR1.3",
     "NFR1.4",
     "NFR1.5",
+    "NFR5",
+    "NFR6",
     "BR1.5",
     "BR1.4"
   ],
@@ -427,6 +429,8 @@
     { "id": "NFR1.3", "status": "OK", "target": "frontend/src/components/StatsPanel.tsx" },
     { "id": "NFR1.4", "status": "OK", "target": "frontend/src/components/LanRiskBanner.tsx" },
     { "id": "NFR1.5", "status": "OK", "target": "frontend/src/components/RobotStateDisplay.tsx" },
+    { "id": "NFR5", "status": "N/A", "target": "No formal WCAG requirement; native button semantics and readable contrast keep the panel usable, with no conformance certification target in this scope" },
+    { "id": "NFR6", "status": "OK", "target": "frontend/src/test-setup.ts" },
     { "id": "BR1.5", "status": "OK", "target": "frontend/src/components/StatsPanel.tsx" },
     { "id": "BR1.4", "status": "OK", "target": "frontend/src/components/StatsPanel.tsx" }
   ]

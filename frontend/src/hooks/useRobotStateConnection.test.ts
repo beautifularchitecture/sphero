@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { useRobotStateConnection } from './useRobotStateConnection';
 import { MockWebSocket } from '../test-utils/mockWebSocket';
+import { robotStateWebSocketUrl } from '../constants';
 
 describe('useRobotStateConnection (NFR3.1–NFR3.5, NFR1.2, NFR1.5)', () => {
   const originalWebSocket = globalThis.WebSocket;
@@ -29,6 +30,27 @@ describe('useRobotStateConnection (NFR3.1–NFR3.5, NFR1.2, NFR1.5)', () => {
     const instances = MockWebSocket.instances;
     return instances[instances.length - 1];
   }
+
+  it('Given an http page location, When the robot-state URL is built, Then it is an absolute ws:// URL with the page host and path', () => {
+    expect(robotStateWebSocketUrl({ protocol: 'http:', host: '192.168.1.50:5173' })).toBe(
+      'ws://192.168.1.50:5173/ws/robot-state'
+    );
+  });
+
+  it('Given an https page location, When the robot-state URL is built, Then it is an absolute wss:// URL', () => {
+    expect(robotStateWebSocketUrl({ protocol: 'https:', host: 'sphero.local' })).toBe(
+      'wss://sphero.local/ws/robot-state'
+    );
+  });
+
+  it('Given a fresh mount, When the hook opens the socket, Then the URL is absolute and built from the page location', () => {
+    renderHook(() => useRobotStateConnection());
+
+    const url = latestSocket().url;
+    expect(url).toBe(robotStateWebSocketUrl());
+    expect(url).toMatch(/^wss?:\/\//);
+    expect(url.endsWith('/ws/robot-state')).toBe(true);
+  });
 
   it('Given a fresh mount, When the WebSocket opens, Then the connection shows connected with no reconnect attempts', () => {
     const { result } = renderHook(() => useRobotStateConnection());

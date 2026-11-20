@@ -17,7 +17,12 @@ Stories: US1.4 (stats panel observability, AC1.4.1–AC1.4.2), US1.5 (error disp
 - **SpeedColorSelector.tsx** — inline speed (low/medium/high) and color (red/blue/green) buttons; emits `set speed <level>` / `set color <color>` exactly through the `onSendChatCommand` callback; disabled when no handler is supplied; does not call U1 directly.
 
 ### Hook (`frontend/src/hooks/useRobotStateConnection.ts`)
-- Native `WebSocket` subscription to `/ws/robot-state` initiated on mount.
+- Native `WebSocket` subscription to `/ws/robot-state` initiated on mount. The
+  URL is built **absolute** by `robotStateWebSocketUrl()` (`ws://` on http,
+  `wss://` on https, from `window.location.host`) because the browser
+  `WebSocket` constructor rejects a relative path. Three BDD tests assert the
+  absolute URL for http, https and a live mount; the jsdom `DOMException`
+  stderr seen before loop-back 2 is gone.
 - Exponential reconnect backoff 1s / 2s / 4s / 8s capped at 30s, tracked via a ref (not React state) so closes outside React's act/sync flush still observe the correct attempt count.
 - JSON parse + shape validation (`isValidRobotState`): required `timestamp: string`; optional `direction`/`color`/`position` (string), `orientation` (number), `connectionStatus` (string); missing/explicit-null tolerated.
 - Malformed/non-JSON/shape-mismatched frames dropped with a non-payload `console.error` diagnostic; state, counter, and last-updated untouched; stale state not cleared.
@@ -27,7 +32,7 @@ Stories: US1.4 (stats panel observability, AC1.4.1–AC1.4.2), US1.5 (error disp
 
 ### Types & constants (`frontend/src/types.ts`, `frontend/src/constants.ts`)
 - `RobotStatePayload`, `RobotStateView`, `ConnectionView`, `ErrorReport`, `SpeedColorSelectorProps`, `StatsPanelProps`.
-- `WS_ROBOT_STATE_PATH = '/ws/robot-state'`, `LAN_RISK_BANNER_TEXT`, `DASH = '-'`, `RECONNECT_BASE_DELAY_MS = 1000`, `RECONNECT_MAX_DELAY_MS = 30000`.
+- `WS_ROBOT_STATE_PATH = '/ws/robot-state'`, `robotStateWebSocketUrl()` (absolute `ws:`/`wss:` URL builder), `LAN_RISK_BANNER_TEXT`, `DASH = '-'`, `RECONNECT_BASE_DELAY_MS = 1000`, `RECONNECT_MAX_DELAY_MS = 30000`.
 
 ### Test infrastructure
 - `vitest.config.ts` (workspace root): React plugin, jsdom environment, globals, `include: ['frontend/src/**/*.test.{ts,tsx}']`, `setupFiles: ['./frontend/src/test-setup.ts']` (registers `@testing-library/jest-dom` matchers).
@@ -47,7 +52,9 @@ Exact unit-scoped command (u3-stats-ui test files only, never a bare project-wid
 vitest run --reporter=verbose <u3-stats-ui test file paths>
 ```
 
-Result: **45 tests passed across 9 test files**; `tsc --noEmit` clean; `vite build` produced `dist/` successfully.
+Result on the loop-back 2 replay: **65 tests passed across 11 test files**
+(the full assembled suite, U1 + U2 + U3 included); `tsc --noEmit` clean;
+`vite build` produced `dist/` successfully.
 
 ## Traceability
 
@@ -81,7 +88,7 @@ Steps 1–8 complete:
 2. Test runner/bootstrap and unit-scoped command — done
 3. Behavior scenarios (Given/When/Then) — done
 4. Feature slice implementation — done
-5. Behavior scenarios run until green (BDD green) — done: 45/45 passing
-6. Refactor while green — done (fixed jest-dom registration, orientation degree formatting, backoff stale-closure, pre-existing ConnectionStatus type errors; `tsc --noEmit` clean, 45/45 still passing)
+5. Behavior scenarios run until green (BDD green) — done: 65/65 passing
+6. Refactor while green — done (fixed jest-dom registration, orientation degree formatting, backoff stale-closure, pre-existing ConnectionStatus type errors, and the loop-back 2 absolute-WebSocket-URL defect; `tsc --noEmit` clean, 65/65 still passing)
 7. Vite build producing `dist/` — done
 8. Documentation and traceability — done (this file + `traceability.json`)

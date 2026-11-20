@@ -1,5 +1,11 @@
+# Runtime
 bleak
 fastapi
+
+# Chat-to-command translation (imported lazily at runtime; needs OPENROUTER_API_KEY)
+deepagents
+langchain-openai
+openai
 
 # Test dependencies
 pytest

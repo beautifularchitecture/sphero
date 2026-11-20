@@ -7,6 +7,14 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   root: 'frontend',
   plugins: [react()],
+  // Dev-only: the SPA derives both WebSocket URLs from its own origin, so
+  // forward them to the two backend processes started by backend.sh.
+  server: {
+    proxy: {
+      '/ws/chat': { target: 'ws://127.0.0.1:8000', ws: true },
+      '/ws/robot-state': { target: 'ws://127.0.0.1:8001', ws: true },
+    },
+  },
   build: {
     outDir: '../dist',
     emptyOutDir: true,

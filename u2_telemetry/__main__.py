@@ -6,6 +6,8 @@ Configuration (environment variables, no hardcoded secrets or addresses):
 
     U2_BLE_ADDRESS   BLE address of the Sphero Mini (required; scan with
                      ``bluetoothctl``). No placeholder MAC is baked in.
+    U2_WS_PORT       Port for the /ws/robot-state WebSocket (default 8000).
+                     Set to 8001 when running alongside backend.sh.
 """
 
 from __future__ import annotations
@@ -43,7 +45,8 @@ async def _serve_websocket(bus: RobotStateEventBus) -> None:
         )
         return
     set_event_bus(bus)
-    config = uvicorn.Config(app, host="0.0.0.0", port=8000, log_level="warning")
+    port = int(os.getenv("U2_WS_PORT", "8000"))
+    config = uvicorn.Config(app, host="0.0.0.0", port=port, log_level="warning")
     server = uvicorn.Server(config)
     await server.serve()
 

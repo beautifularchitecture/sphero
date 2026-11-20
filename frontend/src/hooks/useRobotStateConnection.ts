@@ -10,7 +10,7 @@ import {
   DASH,
   RECONNECT_BASE_DELAY_MS,
   RECONNECT_MAX_DELAY_MS,
-  WS_ROBOT_STATE_PATH,
+  robotStateWebSocketUrl,
 } from '../constants';
 
 function formatOrientation(value: number | null | undefined): string {
@@ -147,7 +147,7 @@ export function useRobotStateConnection(): UseRobotStateConnectionResult {
 
     let socket: WebSocket;
     try {
-      socket = new WebSocket(WS_ROBOT_STATE_PATH);
+      socket = new WebSocket(robotStateWebSocketUrl());
     } catch (error) {
       console.error('Failed to open robot-state WebSocket connection', error);
       scheduleReconnectRef.current();

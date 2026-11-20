@@ -4,7 +4,15 @@
     "slug": "sphero-chat-control",
     "dirName": "261110-sphero-chat-control",
     "scope": "mvp",
-    "status": "in-flight",
+    "status": "complete",
     "request": "80fdadc9"
+  },
+  {
+    "uuid": "01a1f867-a107-76fb-ab90-c85de9957b3f",
+    "slug": "readme-run-scripts",
+    "dirName": "261120-readme-run-scripts",
+    "scope": "express",
+    "status": "in-flight",
+    "request": "aa9a2fa9"
   }
 ]

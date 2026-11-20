@@ -7,15 +7,14 @@ instead of in chat, write your answer after `[Answer]:` and tell me in chat when
 
 Approve the code plan for u1-chat-command-core?
 
-- 0 plan steps
+- 12 plan steps
 - Tests: see unit-test-instructions.md
-- Already changed before you approved (2 files): package-lock.json, package.json.
 
 Full plan: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/code-generation/code-generation-plan.md
 Test instructions: aidlc/spaces/default/intents/261110-sphero-chat-control/construction/u1-chat-command-core/code-generation/unit-test-instructions.md
 
-[Approval Fingerprint]: sha256:v3:c0aa87801ef11aa5f95346e0523b298524abae9ba9ba844992659d8a580f7d28
-[Planned Source]: 0875dc7478a3652ac5ae550beccb35c247acb96069d50920eb033d54d0895704
+[Approval Fingerprint]: sha256:v3:d4ffd8448fed5e25b8a92311e5f6862a1e56e68a9a0c93cd541a4af28609e9cb
+[Planned Source]: 70faa47581841763cc30b1e7ef991ee9dc09dea71a325532e63d0f07608cb814
 
 - A. Approve Plan
 - B. Request Changes
